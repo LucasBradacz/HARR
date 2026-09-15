@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :movies, only: [:index, :show]
+  root "movies#index"
   get "registrations/new"
   get "registrations/create"
   get "sessions/new"
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
   get "reviews/destroy"
   get "movies/index"
   get "movies/show"
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
