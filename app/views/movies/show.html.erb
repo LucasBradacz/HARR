@@ -1,2 +1,30 @@
-<h1>Movies#show</h1>
-<p>Find me in app/views/movies/show.html.erb</p>
+<%= link_to "← Voltar para busca", movies_path %>
+
+<h1><%= @movie.title %> (<%= @movie.release_year %>)</h1>
+
+<% if @movie.poster_url.present? %>
+  <%= image_tag @movie.poster_url, alt: @movie.title, width: 300 %>
+<% end %>
+
+<p><%= @movie.synopsis %></p>
+
+<p>
+  <strong>Gêneros:</strong>
+  <%= @movie.genres.map(&:name).join(", ") %>
+</p>
+
+<hr>
+
+<h2>Reviews</h2>
+<% if @movie.reviews.any? %>
+  <ul>
+    <% @movie.reviews.each do |review| %>
+      <li>
+        <strong><%= review.user.username %></strong> — <%= review.rating %>/5
+        <p><%= review.body %></p>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Nenhuma review ainda.</p>
+<% end %>
