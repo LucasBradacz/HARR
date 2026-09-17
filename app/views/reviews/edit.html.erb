@@ -1,2 +1,7 @@
-<h1>Reviews#edit</h1>
-<p>Find me in app/views/reviews/edit.html.erb</p>
+<h1>Editar review</h1>
+<%= form_with model: @review, url: movie_review_path(@movie, @review), local: true do |f| %>
+  <%= f.label :rating, "Nota" %> <%= f.number_field :rating, in: 1..5 %>
+  <%= f.label :body, "Sua review" %> <%= f.text_area :body %>
+  <%= f.check_box :contains_spoilers %> <%= f.label :contains_spoilers, "Contém spoilers" %>
+  <%= f.submit "Salvar" %>
+<% end %>
