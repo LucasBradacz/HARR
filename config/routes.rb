@@ -1,39 +1,22 @@
 Rails.application.routes.draw do
-  get "/login", to: "sessions#new", as: :login
-  post "/login", to: "sessions#create"
-  delete "/logout", to: "sessions#destroy", as: :logout
-  resources :movies, only: [:index, :show]
   root "movies#index"
-  get "registrations/new"
-  get "registrations/create"
-  get "sessions/new"
-  get "sessions/create"
-  get "sessions/destroy"
-  get "follows/create"
-  get "follows/destroy"
-  get "watchlist_items/create"
-  get "watchlist_items/destroy"
-  get "diary_entries/create"
-  get "diary_entries/edit"
-  get "diary_entries/update"
-  get "diary_entries/destroy"
-  get "reviews/create"
-  get "reviews/edit"
-  get "reviews/update"
-  get "reviews/destroy"
-  get "movies/index"
-  get "movies/show"
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :movies, only: [:index, :show] do
+    resources :reviews, only: [:create, :edit, :update, :destroy]
+    resources :diary_entries, only: [:create, :edit, :update, :destroy]
+    resource :watchlist_item, only: [:create, :destroy]
+  end
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  get "/login", to: "sessions#new", as: :new_session
+  post "/login", to: "sessions#create", as: :session
+  delete "/logout", to: "sessions#destroy", as: :logout
+
+  resource :registration, only: [:new, :create]
+
+  resources :users, only: [:show], param: :username
+
+  post "follows/:followed_id", to: "follows#create", as: :follow
+  delete "follows/:followed_id", to: "follows#destroy", as: :unfollow
+
   get "up" => "rails/health#show", as: :rails_health_check
-
-  # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
-  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
-
-  # Defines the root path route ("/")
-  # root "posts#index"
 end

@@ -1,29 +1,20 @@
 <h1>Login</h1>
 
-<% if flash[:notice] %>
-  <p><%= flash[:notice] %></p>
-<% end %>
+<% if flash[:notice] %><p><%= flash[:notice] %></p><% end %>
+<% if flash[:alert] %><p><%= flash[:alert] %></p><% end %>
 
-<% if flash[:alert] %>
-  <p><%= flash[:alert] %></p>
-<% end %>
-
-<%= form_with url: login_path, method: :post do |form| %>
-
+<%= form_with url: session_path, method: :post do |form| %>
   <div>
     <%= form.label :username, "Usuário:" %>
     <%= form.text_field :username, required: true %>
   </div>
-
   <br>
-
   <div>
     <%= form.label :password, "Senha:" %>
     <%= form.password_field :password, required: true %>
   </div>
-
   <br>
-
   <%= form.submit "Entrar" %>
-
 <% end %>
+
+<%= link_to "Criar conta", new_registration_path %>

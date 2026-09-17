@@ -1,27 +1,54 @@
 <%= link_to "← Voltar para busca", movies_path %>
 
 <h1><%= @movie.title %> (<%= @movie.release_year %>)</h1>
+<% if @movie.poster_url.present? %><%= image_tag @movie.poster_url, width: 300 %><% end %>
+<p><%= @movie.synopsis %></p>
+<p><strong>Gêneros:</strong> <%= @movie.genres.map(&:name).join(", ") %></p>
 
-<% if @movie.poster_url.present? %>
-  <%= image_tag @movie.poster_url, alt: @movie.title, width: 300 %>
+<% if logged_in? %>
+  <% if current_user.watchlist_items.exists?(movie: @movie) %>
+    <%= button_to "Remover da watchlist", movie_watchlist_item_path(@movie), method: :delete %>
+  <% else %>
+    <%= button_to "Adicionar à watchlist", movie_watchlist_item_path(@movie), method: :post %>
+  <% end %>
 <% end %>
 
-<p><%= @movie.synopsis %></p>
-
-<p>
-  <strong>Gêneros:</strong>
-  <%= @movie.genres.map(&:name).join(", ") %>
-</p>
+<hr>
+<h2>Diário</h2>
+<% if logged_in? %>
+  <%= form_with model: DiaryEntry.new, url: movie_diary_entries_path(@movie), local: true do |f| %>
+    <%= f.label :rating, "Nota" %> <%= f.number_field :rating, in: 1..5 %>
+    <%= f.label :watched_on, "Assistido em" %> <%= f.date_field :watched_on %>
+    <%= f.submit "Registrar" %>
+  <% end %>
+<% end %>
+<ul>
+  <% @movie.diary_entries.includes(:user).order(watched_on: :desc).each do |entry| %>
+    <li><%= entry.user.username %> assistiu em <%= entry.watched_on %> — <%= entry.rating %>/5</li>
+  <% end %>
+</ul>
 
 <hr>
-
 <h2>Reviews</h2>
+<% if logged_in? %>
+  <%= form_with model: Review.new, url: movie_reviews_path(@movie), local: true do |f| %>
+    <%= f.label :rating, "Nota" %> <%= f.number_field :rating, in: 1..5 %>
+    <%= f.label :body, "Sua review" %> <%= f.text_area :body %>
+    <%= f.check_box :contains_spoilers %> <%= f.label :contains_spoilers, "Contém spoilers" %>
+    <%= f.submit "Publicar" %>
+  <% end %>
+<% end %>
+
 <% if @movie.reviews.any? %>
   <ul>
-    <% @movie.reviews.each do |review| %>
+    <% @movie.reviews.includes(:user).each do |review| %>
       <li>
-        <strong><%= review.user.username %></strong> — <%= review.rating %>/5
+        <strong><%= link_to review.user.username, user_path(review.user.username) %></strong> — <%= review.rating %>/5
         <p><%= review.body %></p>
+        <% if logged_in? && review.user == current_user %>
+          <%= link_to "Editar", edit_movie_review_path(@movie, review) %>
+          <%= button_to "Excluir", movie_review_path(@movie, review), method: :delete %>
+        <% end %>
       </li>
     <% end %>
   </ul>

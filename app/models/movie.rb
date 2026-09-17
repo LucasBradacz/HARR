@@ -34,4 +34,8 @@ class Movie < ApplicationRecord
       movie.genres << genre unless movie.genres.include?(genre)
     end
   end
+
+  def to_param
+    tmdb_id.to_s
+  end
 end
