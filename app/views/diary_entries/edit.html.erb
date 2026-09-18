@@ -1,2 +1,6 @@
-<h1>DiaryEntries#edit</h1>
-<p>Find me in app/views/diary_entries/edit.html.erb</p>
+<h1>Editar registro</h1>
+<%= form_with model: @diary_entry, url: movie_diary_entry_path(@movie, @diary_entry), local: true do |f| %>
+  <%= f.label :rating, "Nota" %> <%= f.number_field :rating, in: 1..5 %>
+  <%= f.label :watched_on, "Assistido em" %> <%= f.date_field :watched_on %>
+  <%= f.submit "Salvar" %>
+<% end %>

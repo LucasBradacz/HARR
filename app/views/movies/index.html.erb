@@ -1,2 +1,26 @@
-<h1>Movies#index</h1>
-<p>Find me in app/views/movies/index.html.erb</p>
+<h1>Buscar filmes</h1>
+
+<%= form_with url: movies_path, method: :get, local: true do %>
+  <%= text_field_tag :q, params[:q], placeholder: "Digite o nome do filme..." %>
+  <%= submit_tag "Buscar" %>
+<% end %>
+
+<% if params[:q].present? %>
+  <% if @results.empty? %>
+    <p>Nenhum filme encontrado para "<%= params[:q] %>".</p>
+  <% else %>
+    <ul>
+      <% @results.each do |result| %>
+        <li>
+          <%= link_to movie_path(result["id"]) do %>
+            <% if result["poster_path"].present? %>
+              <%= image_tag "https://image.tmdb.org/t/p/w200#{result['poster_path']}", alt: result["title"], width: 100 %>
+            <% end %>
+            <strong><%= result["title"] %></strong>
+            (<%= result["release_date"].to_s.first(4) %>)
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
