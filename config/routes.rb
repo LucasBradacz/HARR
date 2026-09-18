@@ -2,10 +2,12 @@ Rails.application.routes.draw do
   root "movies#index"
 
   resources :movies, only: [:index, :show] do
-    resources :reviews, only: [:create, :edit, :update, :destroy]
+    resources :reviews, only: [:create]
     resources :diary_entries, only: [:create, :edit, :update, :destroy]
     resource :watchlist_item, only: [:create, :destroy]
   end
+
+  resources :reviews, only: [:edit, :update, :destroy]
 
   get "/login", to: "sessions#new", as: :new_session
   post "/login", to: "sessions#create", as: :session
