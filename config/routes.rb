@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :reviews, only: [:edit, :update, :destroy]
 
+  get "watchlist", to: "watchlist_items#index", as: :watchlist
+
   get "/login", to: "sessions#new", as: :new_session
   post "/login", to: "sessions#create", as: :session
   delete "/logout", to: "sessions#destroy", as: :logout

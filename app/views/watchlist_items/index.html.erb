@@ -1,0 +1,21 @@
+<div class="page">
+  <h1>Minha watchlist</h1>
+
+  <% if @watchlist_items.any? %>
+    <div class="poster-grid">
+      <% @watchlist_items.each do |item| %>
+        <%= link_to movie_path(item.movie), class: "poster-card" do %>
+          <% if item.movie.poster_url.present? %>
+            <%= image_tag item.movie.poster_url, alt: item.movie.title %>
+          <% end %>
+          <div class="poster-info">
+            <div class="poster-title"><%= item.movie.title %></div>
+            <div class="poster-year"><%= item.movie.release_year %></div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% else %>
+    <p style="color:var(--text-muted);">Nenhum filme salvo ainda.</p>
+  <% end %>
+</div>
