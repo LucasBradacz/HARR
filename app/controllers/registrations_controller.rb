@@ -9,7 +9,7 @@ class RegistrationsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path, notice: "Conta criada com sucesso."
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :bad_request
     end
   end
 

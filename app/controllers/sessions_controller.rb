@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       redirect_to root_path, notice: "Login realizado com sucesso!"
     else
       flash.now[:alert] = "Usuário ou senha incorretos."
-      render :new, status: :unprocessable_entity
+      render :new, status: :bad_request
     end
   end
 
