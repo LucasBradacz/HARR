@@ -1,15 +1,18 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+#
+# password_digest é gerado via ERB (fixtures do Rails processam ERB) para permitir
+# autenticação real com has_secure_password nos testes de integração.
 
 one:
-  username: MyString
-  email: MyString
-  password_digest: MyString
-  bio: MyText
-  avatar_url: MyString
+  username: alice
+  email: alice@example.com
+  password_digest: <%= BCrypt::Password.create("Senha@123") %>
+  bio: Cinéfila e escritora de resenhas.
+  avatar_url:
 
 two:
-  username: MyString
-  email: MyString
-  password_digest: MyString
-  bio: MyText
-  avatar_url: MyString
+  username: bob
+  email: bob@example.com
+  password_digest: <%= BCrypt::Password.create("Senha@123") %>
+  bio: Gosto de filmes de terror.
+  avatar_url:

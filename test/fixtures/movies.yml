@@ -1,17 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  tmdb_id: 
-  title: MyString
-  release_year: 1
-  poster_url: MyString
-  synopsis: MyText
+  tmdb_id: 100001
+  title: Filme Um
+  release_year: 2020
+  poster_url:
+  synopsis: Sinopse do filme um.
   cached_at: 2026-09-07 18:02:45
 
 two:
-  tmdb_id: 
-  title: MyString
-  release_year: 1
-  poster_url: MyString
-  synopsis: MyText
+  tmdb_id: 100002
+  title: Filme Dois
+  release_year: 2021
+  poster_url:
+  synopsis: Sinopse do filme dois.
   cached_at: 2026-09-07 18:02:45
