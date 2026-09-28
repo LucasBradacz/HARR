@@ -1,0 +1,78 @@
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+        
+        <header class="navbar">
+            <div class="container nav-inner">
+                <a aria-label="HARR — início" class="logo" href="<%= root_path %>">
+                    <span aria-hidden="true" class="logo-icon">
+                        <img alt="" height="52" src="<%= asset_path("rubens/bandeira.svg") %>" width="52"/>
+                    </span>
+                    HARR
+                    <span class="logo-dot">.</span>
+                </a>
+                <span class="ship-name">FILMES, LISTAS E AVALIAÇÕES</span>
+                <details class="user-menu">
+                    <summary>
+                        <span class="mini-avatar" data-profile-avatar="">M</span>
+                        <span data-profile-name="">Monique</span>
+                        <span aria-hidden="true">
+                            <svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
+                                <path d="m6 9 6 6 6-6">
+                                </path>
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="dropdown-content">
+                        <a href="<%= (logged_in? ? user_path(current_user.username) : new_session_path) %>">Meu perfil</a>
+                        <a href="<%= (logged_in? ? user_path(current_user.username) : new_session_path) %>#favoritos">Meus favoritos</a>
+                        <a href="<%= watchlist_path %>#watchlist">Quero assistir</a>
+                    </div>
+                </details>
+            </div>
+        </header>
+        
+        <div class="tabs-bar">
+            <nav aria-label="Abas principais" class="container tabs">
+                <a href="<%= root_path %>" class="<%= "active" if content_for(:rubens_page) == "inicio" %>" aria-current="<%= "page" if content_for(:rubens_page) == "inicio" %>">
+                    <span aria-hidden="true" class="tab-icon">
+                        <svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
+                            <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z">
+                            </path>
+                        </svg>
+                    </span>
+                    Início
+                </a>
+                <a href="<%= movies_path %>" class="<%= "active" if content_for(:rubens_page) == "filmes" %>" aria-current="<%= "page" if content_for(:rubens_page) == "filmes" %>">
+                    <span aria-hidden="true" class="tab-icon">
+                        <svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
+                            <rect height="18" rx="2" width="18" x="3" y="3">
+                            </rect>
+                            <path d="M7 3v18M17 3v18M3 8h4M3 16h4M17 8h4M17 16h4">
+                            </path>
+                        </svg>
+                    </span>
+                    Filmes
+                </a>
+                <a href="<%= watchlist_path %>" class="<%= "active" if content_for(:rubens_page) == "listas" %>" aria-current="<%= "page" if content_for(:rubens_page) == "listas" %>">
+                    <span aria-hidden="true" class="tab-icon">
+                        <svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
+                            <rect height="18" rx="2" width="16" x="4" y="3">
+                            </rect>
+                            <path d="M8 8h8M8 12h8M8 16h5">
+                            </path>
+                        </svg>
+                    </span>
+                    Listas
+                </a>
+                <a href="<%= (logged_in? ? user_path(current_user.username) : new_session_path) %>" class="<%= "active" if content_for(:rubens_page) == "perfil" %>" aria-current="<%= "page" if content_for(:rubens_page) == "perfil" %>">
+                    <span aria-hidden="true" class="tab-icon">
+                        <svg aria-hidden="true" class="ui-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
+                            <circle cx="12" cy="8" r="4">
+                            </circle>
+                            <path d="M4 21v-2a8 8 0 0 1 16 0v2">
+                            </path>
+                        </svg>
+                    </span>
+                    Perfil
+                </a>
+            </nav>
+        </div>

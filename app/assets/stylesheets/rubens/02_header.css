@@ -1,0 +1,97 @@
+/* 2. CABEÇALHO — details/summary abre o menu também por toque e teclado. */
+.rubens-frontend .navbar {
+    background: #0c181c;
+    border-bottom: 1px solid var(--line);
+}
+
+.rubens-frontend .nav-inner {
+    min-height: 86px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+.rubens-frontend .logo {
+    display: inline-flex;
+    align-items: center;
+    font-family: Georgia, serif;
+    font-weight: bold;
+    font-size: 31px;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+.rubens-frontend .logo-icon {
+    font-size: 33px;
+    color: var(--gold);
+    margin-right: 10px;
+}
+
+.rubens-frontend .logo-dot {
+    color: var(--gold);
+}
+
+.rubens-frontend .user-menu {
+    position: relative;
+    border-left: 1px solid var(--line);
+    padding-left: 25px;
+}
+
+.rubens-frontend .user-menu summary {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.rubens-frontend summary {
+    list-style: none;
+}
+
+.rubens-frontend summary::-webkit-details-marker {
+    display: none;
+}
+
+.rubens-frontend .mini-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #315253;
+    color: #eee8d9;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    font-size: 11px;
+    font-family: Georgia, serif;
+}
+
+.rubens-frontend .ochre {
+    background: #68543a;
+}
+
+.rubens-frontend .dropdown-content {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width: 180px;
+    padding: 8px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    box-shadow: 0 10px 30px #0006;
+    border-radius: 4px;
+    z-index: 10;
+}
+
+.rubens-frontend .dropdown-content a {
+    display: block;
+    padding: 8px 12px;
+    font-size: 13px;
+}
+
+.rubens-frontend .dropdown-content a:hover {
+    background: #23393d;
+}
+
+

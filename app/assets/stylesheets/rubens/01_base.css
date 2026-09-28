@@ -1,0 +1,127 @@
+/* 1. BASE — altere as cores aqui para personalizar o site. */
+.rubens-frontend {
+    --background: #101d21;
+    --surface: #17282c;
+    --text: #eee8d9;
+    --muted: #a1b0af;
+    --gold: #d6b575;
+    --line: #304044;
+}
+
+.rubens-frontend * {
+    box-sizing: border-box;
+}
+
+.rubens-frontend {
+    scroll-behavior: smooth;
+    scroll-padding-top: 24px;
+}
+
+.rubens-frontend {
+    margin: 0;
+    background: var(--background);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.rubens-frontend a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.rubens-frontend a:hover {
+    color: var(--gold);
+}
+
+.rubens-frontend a,
+.rubens-frontend summary {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.rubens-frontend a:focus-visible,
+.rubens-frontend summary:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 5px;
+}
+
+.rubens-frontend img {
+    display: block;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.rubens-frontend h1,
+.rubens-frontend h2,
+.rubens-frontend h3,
+.rubens-frontend p {
+    margin-top: 0;
+}
+
+.rubens-frontend .container {
+    width: min(1120px, calc(100% - 64px));
+    margin: auto;
+}
+
+.rubens-frontend .muted {
+    color: var(--muted);
+}
+
+.rubens-frontend .small {
+    font-size: 11px;
+}
+
+.rubens-frontend .eyebrow {
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.rubens-frontend .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    padding: 12px 22px;
+    background: var(--gold);
+    color: #18262a;
+    border: 1px solid var(--gold);
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.rubens-frontend .button:hover {
+    background: #ebcd92;
+    color: #18262a;
+}
+
+.rubens-frontend .text-link {
+    color: var(--gold);
+    font-size: 12px;
+}
+
+.rubens-frontend .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 15px;
+    padding: 10px;
+    background: var(--text);
+    color: var(--background);
+    z-index: 20;
+}
+
+.rubens-frontend .skip-link:focus {
+    top: 10px;
+}
+
+.rubens-frontend .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+}
+

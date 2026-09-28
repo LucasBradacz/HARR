@@ -1,0 +1,90 @@
+/* Interface do front-end; interações nos módulos Stimulus de Rubens. */
+.rubens-frontend input,
+.rubens-frontend select,
+.rubens-frontend textarea,
+.rubens-frontend button {
+    font: inherit;
+}
+
+.rubens-frontend button {
+    cursor: pointer;
+}
+
+.rubens-frontend button:focus-visible,
+.rubens-frontend input:focus-visible,
+.rubens-frontend select:focus-visible,
+.rubens-frontend textarea:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+}
+
+.rubens-frontend .catalog-tools {
+    margin-bottom: 32px;
+    padding: 22px;
+    background: #17282cee;
+    border: 1px solid #786444;
+    border-radius: 4px;
+}
+
+.rubens-frontend .search-label,
+.rubens-frontend .filter-grid label,
+.rubens-frontend .comment-label {
+    display: block;
+    color: var(--text);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.rubens-frontend .search-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 8px 0 18px;
+    padding: 0 14px;
+    border: 1px solid #64706a;
+    border-radius: 3px;
+    background: #0e1c20;
+}
+
+.rubens-frontend .search-box > span {
+    color: var(--gold);
+    font-size: 25px;
+}
+
+.rubens-frontend .search-box input {
+    min-width: 0;
+    width: 100%;
+    padding: 12px 0;
+    border: 0;
+    color: var(--text);
+    background: transparent;
+}
+
+.rubens-frontend input::placeholder,
+.rubens-frontend textarea::placeholder {
+    color: #9aadaa;
+}
+
+.rubens-frontend .filter-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.rubens-frontend .filter-grid select {
+    display: block;
+    width: 100%;
+    margin-top: 7px;
+    padding: 10px;
+    color: var(--text);
+    background: #102125;
+    border: 1px solid #64706a;
+    border-radius: 3px;
+}
+
+.rubens-frontend .prototype-note {
+    margin: 14px 0 0;
+    color: #b4beb3;
+    font-size: 11px;
+}
+

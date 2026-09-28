@@ -1,0 +1,112 @@
+/* 18. AJUSTES DISCRETOS DE UI: ícones, alinhamento e áreas de toque. */
+.rubens-frontend .ui-icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+.rubens-frontend .tab-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.rubens-frontend .button {
+    min-height: 44px;
+    gap: 9px;
+    line-height: 1.2;
+}
+.rubens-frontend .banner-controls {
+    align-items: center;
+    gap: 12px;
+}
+.rubens-frontend .banner-controls button,
+.rubens-frontend .popup-close,
+.rubens-frontend .editor-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    line-height: 1;
+}
+.rubens-frontend .banner-controls button .ui-icon {
+    width: 19px;
+    height: 19px;
+}
+.rubens-frontend #banner-position {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 42px;
+    height: 44px;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+.rubens-frontend .banner-controls button:hover,
+.rubens-frontend .popup-close:hover,
+.rubens-frontend .editor-close:hover {
+    background: #31474b;
+    color: var(--gold);
+}
+.rubens-frontend .banner-slide {
+    padding-bottom: 76px;
+}
+.rubens-frontend .user-menu summary {
+    min-height: 44px;
+}
+.rubens-frontend .user-menu summary > span[aria-hidden] .ui-icon {
+    width: 15px;
+    height: 15px;
+}
+.rubens-frontend .like-review {
+    min-height: 36px;
+}
+.rubens-frontend .profile-comment-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 23px 0;
+    border-bottom: 1px solid var(--line);
+}
+.rubens-frontend .profile-comment-content {
+    min-width: 0;
+    flex: 1;
+}
+.rubens-frontend .profile-comment-content h3 {
+    margin: 0 0 10px;
+}
+.rubens-frontend .profile-comment-content .title-button {
+    font-size: 22px;
+}
+.rubens-frontend .profile-comment-text {
+    margin: 0;
+    padding: 13px 0;
+    color: #bdcdd3;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    border-top: 1px solid #30404488;
+    line-height: 1.7;
+}
+.rubens-frontend .empty-state a {
+    color: var(--gold);
+    text-decoration: underline;
+}
+@media (max-width: 650px) {
+    .rubens-frontend .profile-comment-group {
+        gap: 14px;
+    }
+    .rubens-frontend .profile-comment-group .review-film {
+        width: 60px;
+    }
+    .rubens-frontend .profile-comment-content .title-button {
+        font-size: 19px;
+    }
+    .rubens-frontend .editor-actions {
+        flex-wrap: wrap;
+    }
+    .rubens-frontend .editor-actions .button {
+        flex: 1;
+    }
+}

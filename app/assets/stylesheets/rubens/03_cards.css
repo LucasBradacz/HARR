@@ -1,0 +1,125 @@
+/* 4. CARTAZES — o mesmo componente é usado no início e no perfil. */
+.rubens-frontend .section {
+    margin: 34px 0 42px;
+}
+
+.rubens-frontend .section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 15px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 21px;
+}
+
+.rubens-frontend .section-heading h2 {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.rubens-frontend .section-heading > span {
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 1.2px;
+    text-align: right;
+}
+
+.rubens-frontend .movies-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 18px;
+    align-items: start;
+}
+
+.rubens-frontend .movie-card {
+    min-width: 0;
+}
+
+.rubens-frontend .movie-details summary {
+    cursor: pointer;
+}
+
+.rubens-frontend .poster-wrapper {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 2 / 3;
+    border-radius: 5px;
+    border: 1px solid #5d6662;
+    background: var(--surface);
+    transition: border-color .2s, transform .2s;
+}
+
+.rubens-frontend .poster-wrapper img {
+    width: 100%;
+    height: 100%;
+}
+
+.rubens-frontend .movie-details summary:hover .poster-wrapper {
+    border-color: var(--gold);
+    transform: translateY(-3px);
+}
+
+.rubens-frontend .poster-hint {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    text-align: center;
+    background: #0b191ded;
+    color: var(--gold);
+    font-size: 11px;
+    opacity: 0;
+    transition: opacity .2s;
+}
+
+.rubens-frontend .movie-details summary:hover .poster-hint,
+.rubens-frontend .movie-details summary:focus-visible .poster-hint,
+.rubens-frontend .movie-details[open] .poster-hint {
+    opacity: 1;
+}
+
+.rubens-frontend .movie-title {
+    display: block;
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+.rubens-frontend .movie-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 4px;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.rubens-frontend .movie-rating {
+    color: var(--gold);
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.rubens-frontend .synopsis {
+    margin-top: 10px;
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.rubens-frontend .synopsis strong {
+    color: var(--text);
+}
+
+.rubens-frontend .synopsis p {
+    margin: 6px 0;
+}
+

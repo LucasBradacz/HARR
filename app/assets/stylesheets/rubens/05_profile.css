@@ -1,0 +1,140 @@
+/* 6. PERFIL */
+.rubens-frontend .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+    padding: 30px 0;
+}
+
+.rubens-frontend .profile-avatar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 112px;
+    height: 112px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+    background: #29484b;
+    font: 52px Georgia, serif;
+}
+
+.rubens-frontend .profile-avatar span {
+    position: absolute;
+    bottom: -8px;
+    right: -3px;
+    padding: 4px 8px;
+    background: var(--gold);
+    color: #193234;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.rubens-frontend .profile-bio {
+    max-width: 570px;
+}
+
+.rubens-frontend .profile-bio h2 {
+    font: 36px Georgia, serif;
+    margin: 0 0 3px;
+}
+
+.rubens-frontend .profile-bio .eyebrow {
+    margin-bottom: 5px;
+}
+
+.rubens-frontend .profile-handle {
+    font-size: 12px;
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.rubens-frontend .profile-bio > p:last-child {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 0;
+}
+
+.rubens-frontend .profile-header .button {
+    margin-left: auto;
+    white-space: nowrap;
+}
+
+.rubens-frontend .secondary {
+    background: transparent;
+    color: var(--gold);
+}
+
+.rubens-frontend .profile-stats {
+    display: flex;
+    gap: 50px;
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
+}
+
+.rubens-frontend .profile-stats div {
+    display: flex;
+    flex-direction: column;
+}
+
+.rubens-frontend .profile-stats strong {
+    font: 28px Georgia, serif;
+}
+
+.rubens-frontend .profile-stats span {
+    color: var(--muted);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+.rubens-frontend #favoritos .movies-grid {
+    grid-template-columns: repeat(4, minmax(0, 180px));
+}
+
+.rubens-frontend #watchlist .movies-grid {
+    grid-template-columns: repeat(2, minmax(0, 180px));
+}
+
+.rubens-frontend .table-scroll {
+    overflow-x: auto;
+}
+
+.rubens-frontend table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 13px;
+}
+
+.rubens-frontend th,
+.rubens-frontend td {
+    padding: 16px 12px;
+    border-bottom: 1px solid var(--line);
+}
+
+.rubens-frontend thead th {
+    color: var(--muted);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.rubens-frontend td {
+    color: var(--muted);
+}
+
+.rubens-frontend .diary-day {
+    color: var(--gold);
+    font: 24px Georgia, serif;
+    margin-right: 10px;
+}
+
+.rubens-frontend .demo-note {
+    color: var(--muted);
+    font-size: 11px;
+    margin-bottom: 30px;
+}
+

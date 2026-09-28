@@ -1,0 +1,50 @@
+/* 16. PESQUISA: campo amplo e filtros alinhados. */
+.rubens-frontend .catalog-tools {
+    padding: 26px;
+    border: 1px solid #475d61;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #20383c, #14272e);
+    box-shadow: 0 8px 25px #0002;
+}
+.rubens-frontend .search-label {
+    margin-bottom: 12px;
+    font: 22px Georgia, serif;
+}
+.rubens-frontend .search-box {
+    min-height: 60px;
+    padding: 7px 8px 7px 17px;
+    border-radius: 7px;
+    border-color: #7b8f8d;
+    background: #0c1d23;
+}
+.rubens-frontend .search-box input {
+    padding: 10px 0;
+    flex: 1;
+}
+.rubens-frontend .search-box .button {
+    flex-shrink: 0;
+    border-radius: 5px;
+}
+.rubens-frontend .search-box:focus-within {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px #d6b57520;
+}
+.rubens-frontend .filter-grid label {
+    font-size: 11px;
+    letter-spacing: 0.4px;
+    color: #b3c4c7;
+}
+.rubens-frontend .filter-grid select {
+    min-height: 45px;
+    border-color: #476166;
+    border-radius: 6px;
+    font-size: 13px;
+    color-scheme: dark;
+}
+.rubens-frontend #limpar-filtros {
+    padding: 7px 0;
+    border: 0;
+    background: transparent;
+    font-size: 12px;
+}
+

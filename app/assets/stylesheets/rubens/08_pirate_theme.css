@@ -1,0 +1,240 @@
+/* 9. DETALHES PIRATAS — madeira, corda, pergaminho e brasões. */
+.rubens-frontend {
+    background-color: #101d21;
+    background-image: radial-gradient(ellipse at top right, #28413d66, transparent 65%);
+}
+
+/* Cabeçalho de madeira escura e bandeira da tripulação. */
+.rubens-frontend .navbar {
+    background-color: #221e1a;
+    background-image: repeating-linear-gradient(0deg, transparent 0 22px, #0003 23px 24px);
+    border-bottom: 1px solid #836c48;
+}
+
+.rubens-frontend .logo-icon img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+}
+
+.rubens-frontend .ship-name {
+    color: #c2ad87;
+    font-size: 9px;
+    letter-spacing: 2px;
+    margin-right: auto;
+}
+
+/* A faixa em degradê imita uma corda trançada. */
+.rubens-frontend .tabs-bar::after {
+    content: "";
+    display: block;
+    height: 5px;
+    background: repeating-linear-gradient(135deg, #a48653 0 3px, #e2c58c 3px 5px, #6b5438 5px 8px);
+    border-block: 1px solid #624b30;
+}
+
+.rubens-frontend .tabs a {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.rubens-frontend .tab-icon {
+    color: var(--gold);
+    font-size: 19px;
+    line-height: 1;
+}
+
+.rubens-frontend .tabs a.active {
+    background: linear-gradient(0deg, #d6b5751f, transparent);
+}
+
+/* Cabeçalho compacto de cada aba: papel envelhecido e carta náutica. */
+.rubens-frontend .page-heading {
+    position: relative;
+    padding: 23px 90px 23px 26px;
+    background-color: #dfcca2;
+    background-image: linear-gradient(90deg, #e7d6b4f5, #d4b885dd), url('rubens/mapa.svg');
+    background-position: center, right center;
+    background-size: auto, 490px;
+    border: 1px solid #9b7c4f;
+    border-left: 5px solid #a68a54;
+    border-radius: 2px 12px 2px 12px;
+    box-shadow: inset 0 0 25px #8c62332b, 0 5px 12px #0002;
+}
+
+.rubens-frontend .page-heading h1 {
+    color: #32291e;
+    font-weight: bold;
+}
+
+.rubens-frontend .page-heading p {
+    color: #51432f;
+}
+
+.rubens-frontend .page-heading .eyebrow {
+    margin-bottom: 8px;
+    color: #705032;
+    font-size: 9px;
+}
+
+/* Selo de cera: apenas decorativo, não é um botão. */
+.rubens-frontend .pirate-seal {
+    position: absolute;
+    right: 22px;
+    top: 28px;
+    display: grid;
+    place-items: center;
+    width: 49px;
+    height: 49px;
+    background: #813d32;
+    color: #e6c58d;
+    border: 4px double #bc7753;
+    border-radius: 50%;
+    box-shadow: 2px 3px 0 #4b241a44;
+    font-size: 26px;
+    transform: rotate(-12deg);
+}
+
+.rubens-frontend .section-heading {
+    border-bottom: 1px dashed #88734f;
+}
+
+.rubens-frontend .section-heading h2::before {
+    content: "⚓";
+    display: inline-block;
+    margin-right: 9px;
+    color: var(--gold);
+    font-size: 17px;
+}
+
+/* Cantos em latão lembram os encaixes de um baú. */
+.rubens-frontend .poster-wrapper {
+    border: 2px solid #8c764e;
+    box-shadow: 0 4px 9px #0005;
+}
+
+.rubens-frontend .poster-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border: 1px solid #edd9a966;
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+.rubens-frontend .list-card {
+    background-color: #292b24;
+    background-image: linear-gradient(110deg, #71583526, transparent);
+    border: 1px solid #796442;
+    border-left: 5px solid #9d8150;
+}
+
+.rubens-frontend .list-card h3 {
+    color: #eedcb6;
+}
+
+/* Camarote: navio, linhas de mapa e recado da capitã. */
+.rubens-frontend .account-panel {
+    background: #1c3031 url('rubens/mapa.svg') center top / 400px no-repeat;
+    border: 1px solid #897149;
+    border-top: 5px double #c5a26b;
+}
+
+.rubens-frontend .ship-illustration {
+    width: 190px;
+    height: 135px;
+    margin: 0 auto 16px;
+    object-fit: contain;
+}
+
+.rubens-frontend .captain-note {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px dashed #88734f;
+}
+
+.rubens-frontend .captain-note p {
+    margin: 8px 0;
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: #ddc797;
+}
+
+.rubens-frontend .captain-note > span:last-child {
+    color: var(--gold);
+    font-size: 23px;
+}
+
+.rubens-frontend .captain-avatar {
+    border: 5px double #d6b575;
+    box-shadow: 0 0 0 5px #765d37, 0 0 0 7px #c6a46a;
+}
+
+.rubens-frontend .captain-rank {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 4px 10px;
+    background: #713b32;
+    border: 1px solid #b88057;
+    color: #f0dbb4;
+    border-radius: 2px;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+/* A tabela do diário lembra as páginas de um livro de bordo. */
+.rubens-frontend .table-scroll {
+    padding: 0 12px;
+    border: 1px solid #786c4f;
+    border-left: 5px solid #87623f;
+    background: #1d2a29;
+}
+
+.rubens-frontend thead {
+    background: #342f25;
+}
+
+.rubens-frontend thead th {
+    color: #ddc391;
+}
+
+.rubens-frontend .footer {
+    border-top: 3px double #88734f;
+}
+
+@media (max-width: 650px) {
+    .rubens-frontend .ship-name {
+        display: none;
+    }
+
+    .rubens-frontend .logo-icon img {
+        width: 44px;
+        height: 44px;
+    }
+
+    .rubens-frontend .tabs {
+        gap: 17px;
+    }
+
+    .rubens-frontend .tabs a {
+        gap: 6px;
+    }
+
+    .rubens-frontend .tab-icon {
+        font-size: 16px;
+    }
+
+    .rubens-frontend .page-heading {
+        padding: 20px 62px 20px 17px;
+    }
+
+    .rubens-frontend .pirate-seal {
+        width: 37px;
+        height: 37px;
+        right: 13px;
+        top: 22px;
+        font-size: 20px;
+    }
+}
+

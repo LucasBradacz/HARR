@@ -1,0 +1,158 @@
+/* 7. RESPONSIVIDADE — tablet e celular. */
+@media (max-width: 950px) {
+    .rubens-frontend .nav-inner {
+        gap: 18px;
+    }
+
+    .rubens-frontend .movies-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 25px 18px;
+    }
+
+    .rubens-frontend .list-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rubens-frontend .profile-header {
+        flex-wrap: wrap;
+    }
+
+    .rubens-frontend .profile-bio {
+        flex: 1;
+    }
+
+    .rubens-frontend .profile-header .button {
+        margin-left: 139px;
+    }
+}
+
+@media (max-width: 650px) {
+    .rubens-frontend .container {
+        width: calc(100% - 32px);
+    }
+
+    .rubens-frontend .nav-inner {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 16px 0;
+    }
+
+    .rubens-frontend .logo {
+        font-size: 27px;
+    }
+
+    .rubens-frontend .logo-icon {
+        font-size: 28px;
+    }
+
+    .rubens-frontend .user-menu {
+        padding-left: 15px;
+        margin-left: auto;
+    }
+
+    .rubens-frontend .section-heading h2 {
+        font-size: 19px;
+    }
+
+    .rubens-frontend .section-heading > span {
+        font-size: 8px;
+        max-width: 110px;
+    }
+
+    .rubens-frontend .movies-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px 14px;
+    }
+
+    .rubens-frontend .review {
+        gap: 14px;
+    }
+
+    .rubens-frontend .review-author {
+        flex-wrap: wrap;
+    }
+
+    .rubens-frontend .review-author .muted {
+        display: none;
+    }
+
+    .rubens-frontend .list-card {
+        gap: 18px;
+        padding: 16px;
+    }
+
+    .rubens-frontend .mini-posters img {
+        width: 42px;
+        height: 63px;
+    }
+
+    .rubens-frontend .list-card h3 {
+        font-size: 16px;
+    }
+
+    .rubens-frontend .footer {
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    .rubens-frontend .footer > span {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .rubens-frontend .profile-header {
+        gap: 20px;
+    }
+
+    .rubens-frontend .profile-avatar {
+        width: 75px;
+        height: 75px;
+        font-size: 34px;
+    }
+
+    .rubens-frontend .profile-bio h2 {
+        font-size: 29px;
+    }
+
+    .rubens-frontend .profile-bio .eyebrow {
+        font-size: 8px;
+    }
+
+    .rubens-frontend .profile-header .button {
+        margin-left: 0;
+    }
+
+    .rubens-frontend .profile-stats {
+        gap: 0;
+        justify-content: space-between;
+    }
+
+    .rubens-frontend #favoritos .movies-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .rubens-frontend th,
+.rubens-frontend td {
+        padding: 14px 8px;
+        font-size: 11px;
+    }
+
+    .rubens-frontend .diary-day {
+        display: block;
+    }
+
+    .rubens-frontend .demo-note {
+        font-size: 10px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .rubens-frontend {
+        scroll-behavior: auto;
+    }
+
+    .rubens-frontend * {
+        transition: none !important;
+    }
+}
+

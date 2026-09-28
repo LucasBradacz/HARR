@@ -1,0 +1,160 @@
+/* 15. INÍCIO: BANNER DE FILMES E AVALIAÇÕES EM LISTA */
+.rubens-frontend .popular-banner {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 38px;
+    border: 1px solid #5a6258;
+    border-radius: 8px;
+    background: #14252c;
+}
+.rubens-frontend .banner-slide {
+    position: relative;
+    min-height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 32px 70px 60px 36px;
+    isolation: isolate;
+}
+.rubens-frontend .banner-background {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+    opacity: 0.27;
+    filter: blur(3px);
+}
+.rubens-frontend .banner-slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(90deg, #0c1b25f5, #0c1b2570);
+}
+.rubens-frontend .banner-copy {
+    max-width: 590px;
+}
+.rubens-frontend .banner-copy h2 {
+    margin: 10px 0;
+    font: bold 38px Georgia, serif;
+}
+.rubens-frontend .banner-copy > p:not(.eyebrow) {
+    max-width: 510px;
+    color: #c2ced2;
+}
+.rubens-frontend .banner-poster {
+    width: 145px;
+    height: 217px;
+    border: 1px solid #a28b62;
+    border-radius: 4px;
+    box-shadow: 0 12px 30px #0008;
+    transform: rotate(5deg);
+}
+.rubens-frontend .banner-controls {
+    position: absolute;
+    bottom: 16px;
+    right: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 12px;
+}
+.rubens-frontend .banner-controls button {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #8e9a97;
+    border-radius: 50%;
+    background: #152931;
+    color: #f0e8d4;
+    font-size: 24px;
+}
+.rubens-frontend .home-reviews {
+    max-width: 920px;
+    margin: 0 auto;
+}
+.rubens-frontend .home-reviews .section-heading h2 {
+    font: 12px Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #a2bed0;
+}
+.rubens-frontend .home-reviews .section-heading h2::before {
+    content: none;
+}
+.rubens-frontend .home-reviews .section-heading a {
+    font-size: 11px;
+    color: #a2bed0;
+}
+.rubens-frontend .community-review {
+    display: flex;
+    align-items: flex-start;
+    gap: 22px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+}
+.rubens-frontend .review-content {
+    min-width: 0;
+    flex: 1;
+}
+.rubens-frontend .review-content h3 {
+    margin: 0 0 6px;
+    line-height: 1.25;
+}
+.rubens-frontend .title-button {
+    border: 0;
+    padding: 0;
+    text-align: left;
+    color: #f7f1e5;
+    background: transparent;
+    font: bold 25px Georgia, serif;
+}
+.rubens-frontend .title-button:hover {
+    color: var(--gold);
+}
+.rubens-frontend .review-content h3 > span {
+    font: 16px Arial, sans-serif;
+    color: #98b2c1;
+    white-space: nowrap;
+}
+.rubens-frontend .review-user {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    color: #a4bbca;
+    font-size: 12px;
+}
+.rubens-frontend .review-stars {
+    color: #26cf70;
+    font-size: 17px;
+    letter-spacing: 1px;
+}
+.rubens-frontend .review-heart {
+    color: #ff9e3d;
+    font-size: 19px;
+}
+.rubens-frontend .review-text {
+    margin: 12px 0 20px;
+    color: #b4c7d4;
+    font: 17px/1.6 Georgia, serif;
+}
+.rubens-frontend .like-review {
+    padding: 0;
+    border: 0;
+    color: #a0b2bf;
+    background: transparent;
+    font-size: 12px;
+    font-weight: bold;
+}
+.rubens-frontend .like-review span {
+    font-weight: normal;
+    margin-left: 5px;
+}
+.rubens-frontend .like-review[aria-pressed="true"] {
+    color: #efaa6c;
+}
+
