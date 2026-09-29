@@ -1,0 +1,90 @@
+/* Interface do front-end; interações nos módulos Stimulus de HARR. */
+.harr-frontend input,
+.harr-frontend select,
+.harr-frontend textarea,
+.harr-frontend button {
+    font: inherit;
+}
+
+.harr-frontend button {
+    cursor: pointer;
+}
+
+.harr-frontend button:focus-visible,
+.harr-frontend input:focus-visible,
+.harr-frontend select:focus-visible,
+.harr-frontend textarea:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+}
+
+.harr-frontend .catalog-tools {
+    margin-bottom: 32px;
+    padding: 22px;
+    background: #17282cee;
+    border: 1px solid #786444;
+    border-radius: 4px;
+}
+
+.harr-frontend .search-label,
+.harr-frontend .filter-grid label,
+.harr-frontend .comment-label {
+    display: block;
+    color: var(--text);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.harr-frontend .search-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 8px 0 18px;
+    padding: 0 14px;
+    border: 1px solid #64706a;
+    border-radius: 3px;
+    background: #0e1c20;
+}
+
+.harr-frontend .search-box > span {
+    color: var(--gold);
+    font-size: 25px;
+}
+
+.harr-frontend .search-box input {
+    min-width: 0;
+    width: 100%;
+    padding: 12px 0;
+    border: 0;
+    color: var(--text);
+    background: transparent;
+}
+
+.harr-frontend input::placeholder,
+.harr-frontend textarea::placeholder {
+    color: #9aadaa;
+}
+
+.harr-frontend .filter-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.harr-frontend .filter-grid select {
+    display: block;
+    width: 100%;
+    margin-top: 7px;
+    padding: 10px;
+    color: var(--text);
+    background: #102125;
+    border: 1px solid #64706a;
+    border-radius: 3px;
+}
+
+.harr-frontend .prototype-note {
+    margin: 14px 0 0;
+    color: #b4beb3;
+    font-size: 11px;
+}
+

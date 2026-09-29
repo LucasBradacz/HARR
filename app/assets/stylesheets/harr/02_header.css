@@ -1,0 +1,97 @@
+/* 2. CABEÇALHO — details/summary abre o menu também por toque e teclado. */
+.harr-frontend .navbar {
+    background: #0c181c;
+    border-bottom: 1px solid var(--line);
+}
+
+.harr-frontend .nav-inner {
+    min-height: 86px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+.harr-frontend .logo {
+    display: inline-flex;
+    align-items: center;
+    font-family: Georgia, serif;
+    font-weight: bold;
+    font-size: 31px;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+.harr-frontend .logo-icon {
+    font-size: 33px;
+    color: var(--gold);
+    margin-right: 10px;
+}
+
+.harr-frontend .logo-dot {
+    color: var(--gold);
+}
+
+.harr-frontend .user-menu {
+    position: relative;
+    border-left: 1px solid var(--line);
+    padding-left: 25px;
+}
+
+.harr-frontend .user-menu summary {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.harr-frontend summary {
+    list-style: none;
+}
+
+.harr-frontend summary::-webkit-details-marker {
+    display: none;
+}
+
+.harr-frontend .mini-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #315253;
+    color: #eee8d9;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    font-size: 11px;
+    font-family: Georgia, serif;
+}
+
+.harr-frontend .ochre {
+    background: #68543a;
+}
+
+.harr-frontend .dropdown-content {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width: 180px;
+    padding: 8px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    box-shadow: 0 10px 30px #0006;
+    border-radius: 4px;
+    z-index: 10;
+}
+
+.harr-frontend .dropdown-content a {
+    display: block;
+    padding: 8px 12px;
+    font-size: 13px;
+}
+
+.harr-frontend .dropdown-content a:hover {
+    background: #23393d;
+}
+
+

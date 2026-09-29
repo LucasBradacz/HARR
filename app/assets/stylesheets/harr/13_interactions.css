@@ -1,0 +1,83 @@
+/* 14. INTERAÇÕES COM JAVASCRIPT */
+.harr-frontend.modal-open {
+    overflow: hidden;
+}
+
+.harr-frontend .film-popup[open] {
+    animation: harr-abrir-ficha 180ms ease-out;
+}
+
+@keyframes harr-abrir-ficha {
+    from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.harr-frontend .toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    z-index: 100;
+    width: max-content;
+    max-width: calc(100% - 32px);
+    padding: 12px 20px;
+    color: #fff0cd;
+    background: #304b40;
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+    box-shadow: 0 6px 24px #0005;
+    opacity: 0;
+    transform: translate(-50%, 12px);
+    transition: opacity 180ms, transform 180ms;
+    pointer-events: none;
+}
+
+.harr-frontend .toast.visible {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+.harr-frontend .clear-rating {
+    margin-top: 8px;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: var(--gold);
+    text-decoration: underline;
+    font-size: 11px;
+}
+
+.harr-frontend .empty-state {
+    grid-column: 1 / -1;
+    padding: 28px;
+    border: 1px dashed #897149;
+    color: var(--muted);
+    text-align: center;
+}
+
+.harr-frontend #limpar-filtros {
+    margin-top: 16px;
+}
+
+.harr-frontend .public-comment p {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.harr-frontend .movie-open,
+.harr-frontend .button,
+.harr-frontend .tabs a {
+    transition: color 180ms, background-color 180ms, border-color 180ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .harr-frontend .film-popup[open] {
+        animation: none;
+    }
+}
+

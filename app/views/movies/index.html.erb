@@ -1,34 +1,37 @@
-<div class="page">
-  <h1>Buscar filmes</h1>
-
-  <%= form_with url: movies_path, method: :get, local: true, html: { class: "search-form" } do %>
-    <%= text_field_tag :q, params[:q], placeholder: "Digite o nome do filme..." %>
-    <%= submit_tag "Buscar" %>
-  <% end %>
-
-  <% if params[:q].present? %>
-    <% if @results.empty? %>
-      <p>Nenhum filme encontrado para "<%= params[:q] %>".</p>
-    <% else %>
-      <div class="poster-grid">
-        <% @results.each do |result| %>
-          <%= link_to movie_path(result["id"]), class: "poster-card" do %>
-            <% if result["poster_path"].present? %>
-              <%= image_tag "https://image.tmdb.org/t/p/w300#{result['poster_path']}", alt: result["title"] %>
-            <% else %>
-              <div style="aspect-ratio:2/3;display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:0.8rem;">
-                Sem pôster
-              </div>
-            <% end %>
-            <div class="poster-info">
-              <div class="poster-title"><%= result["title"] %></div>
-              <div class="poster-year"><%= result["release_date"].to_s.first(4) %></div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
+<% content_for :title, "Filmes | HARR" %>
+<main class="container page-content" id="conteudo">
+  <div class="page-heading">
+    <p class="eyebrow">DESCUBRA FILMES</p>
+    <h1>Filmes</h1>
+    <p>Pesquise no catálogo do TMDB e abra a ficha de cada filme.</p>
+  </div>
+  <section class="catalog-tools">
+    <div class="search-label">Pesquisar no catálogo</div>
+    <%= form_with url: movies_path, method: :get, local: true, class: "search-box" do %>
+      <%= text_field_tag :q, params[:q], placeholder: "Digite o nome do filme...", aria: { label: "Nome do filme" } %>
+      <%= submit_tag "Buscar", class: "button" %>
     <% end %>
+  </section>
+  <% if params[:q].present? %>
+    <section class="section">
+      <div class="section-heading"><h2>Resultados</h2><span><%= @results.length %> ENCONTRADOS</span></div>
+      <% if @results.empty? %>
+        <p class="empty-state">Nenhum filme encontrado para “<%= params[:q] %>”.</p>
+      <% else %>
+        <div class="movies-grid">
+          <% @results.each do |result| %>
+            <%= link_to movie_path(result["id"]), class: "movie-link movie-card" do %>
+              <span class="poster-wrapper">
+                <% if result["poster_path"].present? %><%= image_tag "https://image.tmdb.org/t/p/w500#{result['poster_path']}", alt: result["title"], loading: "lazy" %><% else %><span class="empty-state">Sem pôster</span><% end %>
+              </span>
+              <span class="movie-title"><%= result["title"] %></span>
+              <span class="movie-meta"><%= result["release_date"].to_s.first(4) %></span>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </section>
   <% else %>
-    <p style="color:var(--text-muted);">Digite o nome de um filme acima para começar a buscar.</p>
+    <p class="empty-state">Digite o nome de um filme acima para começar a buscar.</p>
   <% end %>
-</div>
+</main>

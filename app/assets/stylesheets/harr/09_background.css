@@ -1,0 +1,19 @@
+/* 10. FUNDO NÁUTICO DISCRETO — camada decorativa sem bloquear cliques. */
+.harr-frontend {
+    position: relative;
+    isolation: isolate;
+}
+
+.harr-frontend::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: url('harr/mapa.svg'), url('harr/navio.svg');
+    background-position: right 120px, left bottom;
+    background-size: 780px, 350px;
+    background-repeat: repeat-y, no-repeat;
+    opacity: 0.055;
+}
+

@@ -1,0 +1,5 @@
+/* Only HARR' layout is affected. */
+.harr-frontend [hidden] { display: none !important; }
+.harr-frontend .integration-notice { padding: 10px 16px; margin: 0; text-align: center; background: #192d34; color: #b9cbce; font-size: 12px; }
+.harr-frontend .flash { padding: 12px; margin-top: 16px; border: 1px solid var(--line); }
+.harr-frontend .film-popup:not([open]) { display: none; }

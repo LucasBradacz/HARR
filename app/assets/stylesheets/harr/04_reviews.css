@@ -1,0 +1,133 @@
+/* 5. RESENHAS E LISTAS */
+.harr-frontend .review {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    border-bottom: 1px solid var(--line);
+    padding: 0 0 22px;
+    margin-bottom: 22px;
+}
+
+.harr-frontend .review > img {
+    flex-shrink: 0;
+    width: 76px;
+    height: 114px;
+    border-radius: 3px;
+}
+
+.harr-frontend .review-author {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    margin-bottom: 8px;
+}
+
+.harr-frontend .review h3 {
+    font-family: Georgia, serif;
+    font-size: 20px;
+    margin-bottom: 1px;
+}
+
+.harr-frontend .review h3 span {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    margin-left: 5px;
+}
+
+.harr-frontend .review .movie-rating {
+    margin-bottom: 7px;
+    font-size: 13px;
+}
+
+.harr-frontend .review p:not(.review-author):not(.movie-rating) {
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+
+.harr-frontend .list-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.harr-frontend .list-card {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 20px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+}
+
+.harr-frontend .list-card:hover {
+    border-color: var(--gold);
+}
+
+.harr-frontend .mini-posters {
+    display: flex;
+    padding-right: 13px;
+    flex-shrink: 0;
+}
+
+.harr-frontend .mini-posters img {
+    width: 57px;
+    height: 85px;
+    margin-right: -13px;
+    border: 1px solid #728078;
+    border-radius: 3px;
+    box-shadow: 3px 0 10px #0006;
+}
+
+.harr-frontend .list-card .eyebrow {
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+.harr-frontend .list-card h3 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: 17px;
+    margin: 4px 0;
+}
+
+.harr-frontend .list-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.harr-frontend .list-card p span {
+    margin-left: 10px;
+    color: var(--gold);
+}
+
+.harr-frontend .footer {
+    padding-top: 28px;
+    padding-bottom: 30px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    color: var(--muted);
+}
+
+.harr-frontend .footer .logo {
+    font-size: 20px;
+    color: var(--gold);
+}
+
+.harr-frontend .footer p {
+    font-family: Georgia, serif;
+    margin: 0;
+    font-size: 13px;
+}
+
+.harr-frontend .footer > span {
+    margin-left: auto;
+    font-size: 10px;
+}
+
