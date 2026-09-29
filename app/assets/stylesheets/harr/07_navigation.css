@@ -1,22 +1,22 @@
 /* 8. NAVEGAÇÃO POR ABAS E CONTEÚDO DAS PÁGINAS */
-.rubens-frontend {
+.harr-frontend {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
-.rubens-frontend .nav-inner {
+.harr-frontend .nav-inner {
     min-height: 72px;
 }
-.rubens-frontend .tabs-bar {
+.harr-frontend .tabs-bar {
     background: #142529;
     border-bottom: 1px solid var(--line);
 }
-.rubens-frontend .tabs {
+.harr-frontend .tabs {
     display: flex;
     gap: 28px;
     overflow-x: auto;
 }
-.rubens-frontend .tabs a {
+.harr-frontend .tabs a {
     padding: 16px 4px;
     border-bottom: 3px solid transparent;
     color: var(--muted);
@@ -24,39 +24,39 @@
     font-weight: bold;
     font-size: 13px;
 }
-.rubens-frontend .tabs a:hover,
-.rubens-frontend .tabs a.active {
+.harr-frontend .tabs a:hover,
+.harr-frontend .tabs a.active {
     color: var(--gold);
     border-bottom-color: var(--gold);
 }
-.rubens-frontend .tabs a:focus-visible {
+.harr-frontend .tabs a:focus-visible {
     outline-offset: -4px;
 }
-.rubens-frontend .page-content {
+.harr-frontend .page-content {
     flex: 1;
     padding-top: 30px;
     padding-bottom: 30px;
 }
-.rubens-frontend .page-heading {
+.harr-frontend .page-heading {
     margin-bottom: 28px;
 }
-.rubens-frontend .page-heading h1 {
+.harr-frontend .page-heading h1 {
     margin-bottom: 6px;
     font: 30px Georgia, serif;
 }
-.rubens-frontend .page-heading p {
+.harr-frontend .page-heading p {
     color: var(--muted);
     margin: 0;
 }
-.rubens-frontend .page-content .section {
+.harr-frontend .page-content .section {
     margin-top: 0;
 }
-.rubens-frontend .feed-layout {
+.harr-frontend .feed-layout {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 280px;
     gap: 36px;
 }
-.rubens-frontend .account-panel {
+.harr-frontend .account-panel {
     align-self: start;
     padding: 24px;
     background: var(--surface);
@@ -64,33 +64,33 @@
     border-top: 3px solid var(--gold);
     border-radius: 4px;
 }
-.rubens-frontend .account-panel h2 {
+.harr-frontend .account-panel h2 {
     margin: 12px 0 0;
     font: 24px Georgia, serif;
 }
-.rubens-frontend .account-panel .profile-stats {
+.harr-frontend .account-panel .profile-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 18px;
     margin-top: 20px;
 }
-.rubens-frontend .aside-link {
+.harr-frontend .aside-link {
     display: block;
     margin-top: 18px;
     color: var(--gold);
     font-size: 12px;
 }
 @media (max-width: 750px) {
-    .rubens-frontend .feed-layout {
+    .harr-frontend .feed-layout {
         grid-template-columns: 1fr;
     }
-    .rubens-frontend .tabs {
+    .harr-frontend .tabs {
         gap: 20px;
     }
-    .rubens-frontend .tabs a {
+    .harr-frontend .tabs a {
         font-size: 12px;
     }
-    .rubens-frontend .page-heading h1 {
+    .harr-frontend .page-heading h1 {
         font-size: 26px;
     }
 }

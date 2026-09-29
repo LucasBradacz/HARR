@@ -1,43 +1,43 @@
 /* 17. PERFIL: upload, prévia e formulário de integração. */
-.rubens-frontend [data-profile-avatar] {
+.harr-frontend [data-profile-avatar] {
     overflow: hidden;
 }
-.rubens-frontend [data-profile-avatar] img {
+.harr-frontend [data-profile-avatar] img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: inherit;
 }
-.rubens-frontend .profile-editor {
+.harr-frontend .profile-editor {
     width: min(560px, calc(100% - 28px));
 }
-.rubens-frontend .profile-form {
+.harr-frontend .profile-form {
     padding: 26px;
 }
-.rubens-frontend .editor-heading,
-.rubens-frontend .editor-actions {
+.harr-frontend .editor-heading,
+.harr-frontend .editor-actions {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 15px;
 }
-.rubens-frontend .editor-heading h2 {
+.harr-frontend .editor-heading h2 {
     margin: 0;
     font: 26px Georgia, serif;
 }
-.rubens-frontend .editor-close {
+.harr-frontend .editor-close {
     border: 0;
     background: transparent;
     color: var(--text);
     font-size: 30px;
 }
-.rubens-frontend .photo-settings {
+.harr-frontend .photo-settings {
     display: flex;
     align-items: center;
     gap: 20px;
     margin: 25px 0;
 }
-.rubens-frontend .photo-preview {
+.harr-frontend .photo-preview {
     width: 95px;
     height: 95px;
     flex-shrink: 0;
@@ -48,25 +48,25 @@
     border-radius: 50%;
     color: var(--muted);
 }
-.rubens-frontend .photo-preview img {
+.harr-frontend .photo-preview img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.rubens-frontend #foto-perfil {
+.harr-frontend #foto-perfil {
     display: block;
     max-width: 210px;
     margin-top: 10px;
     font-size: 11px;
 }
-.rubens-frontend .profile-form > label {
+.harr-frontend .profile-form > label {
     display: block;
     margin-bottom: 6px;
     font-size: 12px;
     font-weight: bold;
 }
-.rubens-frontend .profile-form > input,
-.rubens-frontend .profile-form > textarea {
+.harr-frontend .profile-form > input,
+.harr-frontend .profile-form > textarea {
     display: block;
     width: 100%;
     margin-bottom: 18px;
@@ -76,53 +76,53 @@
     background: #0e1e23;
     color: var(--text);
 }
-.rubens-frontend .profile-form > textarea {
+.harr-frontend .profile-form > textarea {
     resize: vertical;
 }
-.rubens-frontend #perfil-status {
+.harr-frontend #perfil-status {
     color: var(--gold);
     font-size: 12px;
 }
 @media (max-width: 650px) {
-    .rubens-frontend .banner-slide {
+    .harr-frontend .banner-slide {
         min-height: 310px;
         padding: 25px 22px 60px;
         gap: 15px;
     }
-    .rubens-frontend .banner-copy h2 {
+    .harr-frontend .banner-copy h2 {
         font-size: 29px;
     }
-    .rubens-frontend .banner-poster {
+    .harr-frontend .banner-poster {
         display: none;
     }
-    .rubens-frontend .banner-copy .eyebrow {
+    .harr-frontend .banner-copy .eyebrow {
         font-size: 8px;
     }
-    .rubens-frontend .community-review {
+    .harr-frontend .community-review {
         gap: 14px;
     }
-    .rubens-frontend .community-review .review-film {
+    .harr-frontend .community-review .review-film {
         width: 60px;
     }
-    .rubens-frontend .title-button {
+    .harr-frontend .title-button {
         font-size: 21px;
     }
-    .rubens-frontend .review-text {
+    .harr-frontend .review-text {
         font-size: 15px;
     }
-    .rubens-frontend .catalog-tools {
+    .harr-frontend .catalog-tools {
         padding: 18px;
     }
-    .rubens-frontend .search-box {
+    .harr-frontend .search-box {
         flex-wrap: wrap;
     }
-    .rubens-frontend .search-box .button {
+    .harr-frontend .search-box .button {
         width: 100%;
     }
-    .rubens-frontend .profile-form {
+    .harr-frontend .profile-form {
         padding: 20px;
     }
-    .rubens-frontend .photo-settings {
+    .harr-frontend .photo-settings {
         flex-wrap: wrap;
     }
 }

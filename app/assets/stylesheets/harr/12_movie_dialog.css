@@ -1,5 +1,5 @@
-/* Interface do front-end; interações nos módulos Stimulus de Rubens. */
-.rubens-frontend .film-popup {
+/* Interface do front-end; interações nos módulos Stimulus de HARR. */
+.harr-frontend .film-popup {
     width: min(800px, calc(100% - 28px));
     max-height: 88vh;
     max-height: 88dvh;
@@ -14,12 +14,12 @@
     box-shadow: 0 24px 90px #000b;
 }
 
-.rubens-frontend .film-popup::backdrop {
+.harr-frontend .film-popup::backdrop {
     background: #020e16bd;
     backdrop-filter: blur(4px);
 }
 
-.rubens-frontend .popup-close {
+.harr-frontend .popup-close {
     position: sticky;
     top: 10px;
     z-index: 2;
@@ -35,53 +35,53 @@
     line-height: 1;
 }
 
-.rubens-frontend .popup-body {
+.harr-frontend .popup-body {
     padding: 0 28px 28px;
 }
 
-.rubens-frontend .film-overview {
+.harr-frontend .film-overview {
     display: grid;
     grid-template-columns: 150px minmax(0, 1fr);
     gap: 25px;
     margin-bottom: 24px;
 }
 
-.rubens-frontend .popup-poster {
+.harr-frontend .popup-poster {
     width: 150px;
     height: 225px;
     border: 2px solid #a68a54;
     border-radius: 3px;
 }
 
-.rubens-frontend .film-overview h2 {
+.harr-frontend .film-overview h2 {
     margin-bottom: 8px;
     font: 29px Georgia, serif;
 }
 
-.rubens-frontend .film-overview h3 {
+.harr-frontend .film-overview h3 {
     margin-bottom: 5px;
     font-size: 14px;
 }
 
-.rubens-frontend .film-overview p {
+.harr-frontend .film-overview p {
     font-size: 13px;
 }
 
-.rubens-frontend .film-overview .eyebrow {
+.harr-frontend .film-overview .eyebrow {
     font-size: 9px;
 }
 
-.rubens-frontend .film-facts {
+.harr-frontend .film-facts {
     color: var(--gold);
 }
 
-.rubens-frontend .film-actions {
+.harr-frontend .film-actions {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 18px;
 }
 
-.rubens-frontend .film-actions fieldset {
+.harr-frontend .film-actions fieldset {
     min-width: 0;
     margin: 0;
     padding: 14px;
@@ -89,80 +89,80 @@
     border-radius: 4px;
 }
 
-.rubens-frontend .film-actions legend {
+.harr-frontend .film-actions legend {
     padding: 0 6px;
     color: var(--gold);
     font-family: Georgia, serif;
 }
 
-.rubens-frontend .list-choice {
+.harr-frontend .list-choice {
     display: block;
     margin: 8px 0;
     font-size: 13px;
 }
 
-.rubens-frontend .list-choice input {
+.harr-frontend .list-choice input {
     margin-right: 7px;
     accent-color: #d6b575;
 }
 
-.rubens-frontend .star-options {
+.harr-frontend .star-options {
     display: flex;
     gap: 6px;
 }
 
-.rubens-frontend .star-choice {
+.harr-frontend .star-choice {
     position: relative;
     cursor: pointer;
 }
 
-.rubens-frontend .star-choice input {
+.harr-frontend .star-choice input {
     position: absolute;
     width: 1px;
     height: 1px;
     opacity: 0;
 }
 
-.rubens-frontend .star-choice > span:first-of-type {
+.harr-frontend .star-choice > span:first-of-type {
     color: #83908e;
     font-size: 30px;
 }
 
-.rubens-frontend .star-choice:has(input:checked) > span:first-of-type,
-.rubens-frontend .star-choice:has(~ .star-choice input:checked) > span:first-of-type {
+.harr-frontend .star-choice:has(input:checked) > span:first-of-type,
+.harr-frontend .star-choice:has(~ .star-choice input:checked) > span:first-of-type {
     color: var(--gold);
 }
 
-.rubens-frontend .star-choice input:focus-visible + span {
+.harr-frontend .star-choice input:focus-visible + span {
     outline: 2px solid var(--gold);
     outline-offset: 2px;
 }
 
-.rubens-frontend .selection-note,
-.rubens-frontend .rating-note {
+.harr-frontend .selection-note,
+.harr-frontend .rating-note {
     display: none;
     margin: 10px 0 0;
     color: var(--gold);
     font-size: 11px;
 }
 
-.rubens-frontend fieldset:has(input:checked) .selection-note,
-.rubens-frontend fieldset:has(input:checked) .rating-note {
+.harr-frontend fieldset:has(input:checked) .selection-note,
+.harr-frontend fieldset:has(input:checked) .rating-note {
     display: block;
 }
 
-.rubens-frontend .public-comments {
+.harr-frontend .public-comments {
     margin-top: 24px;
     padding-top: 20px;
     border-top: 1px dashed #897149;
 }
 
-.rubens-frontend .public-comments h3 {
+.harr-frontend .public-comments h3 {
     margin-bottom: 5px;
     font: 21px Georgia, serif;
 }
 
-.rubens-frontend .public-comment {
+.harr-frontend .public-comment {
     display: flex;
     gap: 12px;
     padding: 15px 0;
@@ -170,20 +170,20 @@
     font-size: 12px;
 }
 
-.rubens-frontend .public-comment .mini-avatar {
+.harr-frontend .public-comment .mini-avatar {
     flex-shrink: 0;
 }
 
-.rubens-frontend .public-comment p {
+.harr-frontend .public-comment p {
     margin: 7px 0 0;
     color: #bec9c5;
 }
 
-.rubens-frontend .comment-label {
+.harr-frontend .comment-label {
     margin-top: 20px;
 }
 
-.rubens-frontend .public-comments textarea {
+.harr-frontend .public-comments textarea {
     display: block;
     width: 100%;
     margin: 8px 0 12px;
@@ -195,49 +195,49 @@
     background: #0e1c20;
 }
 
-.rubens-frontend button:disabled {
+.harr-frontend button:disabled {
     opacity: 0.55;
     cursor: not-allowed;
 }
 
 @media (max-width: 750px) {
-    .rubens-frontend .top-grid {
+    .harr-frontend .top-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .rubens-frontend .filter-grid {
+    .harr-frontend .filter-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
 @media (max-width: 480px) {
-    .rubens-frontend .top-grid {
+    .harr-frontend .top-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .rubens-frontend .catalog-tools {
+    .harr-frontend .catalog-tools {
         padding: 15px;
     }
 
-    .rubens-frontend .popup-body {
+    .harr-frontend .popup-body {
         padding: 0 16px 20px;
     }
 
-    .rubens-frontend .film-overview {
+    .harr-frontend .film-overview {
         grid-template-columns: 85px minmax(0, 1fr);
         gap: 13px;
     }
 
-    .rubens-frontend .popup-poster {
+    .harr-frontend .popup-poster {
         width: 85px;
         height: 128px;
     }
 
-    .rubens-frontend .film-overview h2 {
+    .harr-frontend .film-overview h2 {
         font-size: 22px;
     }
 
-    .rubens-frontend .film-actions {
+    .harr-frontend .film-actions {
         grid-template-columns: 1fr;
     }
 }

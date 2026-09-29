@@ -1,5 +1,5 @@
 /* 5. RESENHAS E LISTAS */
-.rubens-frontend .review {
+.harr-frontend .review {
     display: flex;
     align-items: flex-start;
     gap: 20px;
@@ -8,14 +8,14 @@
     margin-bottom: 22px;
 }
 
-.rubens-frontend .review > img {
+.harr-frontend .review > img {
     flex-shrink: 0;
     width: 76px;
     height: 114px;
     border-radius: 3px;
 }
 
-.rubens-frontend .review-author {
+.harr-frontend .review-author {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -23,37 +23,37 @@
     margin-bottom: 8px;
 }
 
-.rubens-frontend .review h3 {
+.harr-frontend .review h3 {
     font-family: Georgia, serif;
     font-size: 20px;
     margin-bottom: 1px;
 }
 
-.rubens-frontend .review h3 span {
+.harr-frontend .review h3 span {
     font-family: Arial, sans-serif;
     font-size: 12px;
     font-weight: normal;
     margin-left: 5px;
 }
 
-.rubens-frontend .review .movie-rating {
+.harr-frontend .review .movie-rating {
     margin-bottom: 7px;
     font-size: 13px;
 }
 
-.rubens-frontend .review p:not(.review-author):not(.movie-rating) {
+.harr-frontend .review p:not(.review-author):not(.movie-rating) {
     color: var(--muted);
     font-size: 12px;
     margin-bottom: 7px;
 }
 
-.rubens-frontend .list-grid {
+.harr-frontend .list-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
 }
 
-.rubens-frontend .list-card {
+.harr-frontend .list-card {
     display: flex;
     align-items: center;
     gap: 24px;
@@ -63,17 +63,17 @@
     border-radius: 4px;
 }
 
-.rubens-frontend .list-card:hover {
+.harr-frontend .list-card:hover {
     border-color: var(--gold);
 }
 
-.rubens-frontend .mini-posters {
+.harr-frontend .mini-posters {
     display: flex;
     padding-right: 13px;
     flex-shrink: 0;
 }
 
-.rubens-frontend .mini-posters img {
+.harr-frontend .mini-posters img {
     width: 57px;
     height: 85px;
     margin-right: -13px;
@@ -82,30 +82,30 @@
     box-shadow: 3px 0 10px #0006;
 }
 
-.rubens-frontend .list-card .eyebrow {
+.harr-frontend .list-card .eyebrow {
     font-size: 8px;
     letter-spacing: 1px;
 }
 
-.rubens-frontend .list-card h3 {
+.harr-frontend .list-card h3 {
     font-family: Georgia, serif;
     font-weight: normal;
     font-size: 17px;
     margin: 4px 0;
 }
 
-.rubens-frontend .list-card p {
+.harr-frontend .list-card p {
     margin: 0;
     color: var(--muted);
     font-size: 10px;
 }
 
-.rubens-frontend .list-card p span {
+.harr-frontend .list-card p span {
     margin-left: 10px;
     color: var(--gold);
 }
 
-.rubens-frontend .footer {
+.harr-frontend .footer {
     padding-top: 28px;
     padding-bottom: 30px;
     border-top: 1px solid var(--line);
@@ -115,18 +115,18 @@
     color: var(--muted);
 }
 
-.rubens-frontend .footer .logo {
+.harr-frontend .footer .logo {
     font-size: 20px;
     color: var(--gold);
 }
 
-.rubens-frontend .footer p {
+.harr-frontend .footer p {
     font-family: Georgia, serif;
     margin: 0;
     font-size: 13px;
 }
 
-.rubens-frontend .footer > span {
+.harr-frontend .footer > span {
     margin-left: auto;
     font-size: 10px;
 }

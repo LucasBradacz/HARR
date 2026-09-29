@@ -1,13 +1,13 @@
 /* 14. INTERAÇÕES COM JAVASCRIPT */
-.rubens-frontend.modal-open {
+.harr-frontend.modal-open {
     overflow: hidden;
 }
 
-.rubens-frontend .film-popup[open] {
-    animation: rubens-abrir-ficha 180ms ease-out;
+.harr-frontend .film-popup[open] {
+    animation: harr-abrir-ficha 180ms ease-out;
 }
 
-@keyframes rubens-abrir-ficha {
+@keyframes harr-abrir-ficha {
     from {
         opacity: 0;
         transform: translateY(16px) scale(0.98);
@@ -18,7 +18,7 @@
     }
 }
 
-.rubens-frontend .toast {
+.harr-frontend .toast {
     position: fixed;
     bottom: 24px;
     left: 50%;
@@ -37,12 +37,12 @@
     pointer-events: none;
 }
 
-.rubens-frontend .toast.visible {
+.harr-frontend .toast.visible {
     opacity: 1;
     transform: translate(-50%, 0);
 }
 
-.rubens-frontend .clear-rating {
+.harr-frontend .clear-rating {
     margin-top: 8px;
     border: 0;
     padding: 0;
@@ -52,7 +52,7 @@
     font-size: 11px;
 }
 
-.rubens-frontend .empty-state {
+.harr-frontend .empty-state {
     grid-column: 1 / -1;
     padding: 28px;
     border: 1px dashed #897149;
@@ -60,23 +60,23 @@
     text-align: center;
 }
 
-.rubens-frontend #limpar-filtros {
+.harr-frontend #limpar-filtros {
     margin-top: 16px;
 }
 
-.rubens-frontend .public-comment p {
+.harr-frontend .public-comment p {
     white-space: pre-wrap;
     overflow-wrap: anywhere;
 }
 
-.rubens-frontend .movie-open,
-.rubens-frontend .button,
-.rubens-frontend .tabs a {
+.harr-frontend .movie-open,
+.harr-frontend .button,
+.harr-frontend .tabs a {
     transition: color 180ms, background-color 180ms, border-color 180ms;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .rubens-frontend .film-popup[open] {
+    .harr-frontend .film-popup[open] {
         animation: none;
     }
 }

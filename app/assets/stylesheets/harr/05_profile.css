@@ -1,12 +1,12 @@
 /* 6. PERFIL */
-.rubens-frontend .profile-header {
+.harr-frontend .profile-header {
     display: flex;
     align-items: center;
     gap: 27px;
     padding: 30px 0;
 }
 
-.rubens-frontend .profile-avatar {
+.harr-frontend .profile-avatar {
     position: relative;
     display: flex;
     align-items: center;
@@ -20,7 +20,7 @@
     font: 52px Georgia, serif;
 }
 
-.rubens-frontend .profile-avatar span {
+.harr-frontend .profile-avatar span {
     position: absolute;
     bottom: -8px;
     right: -3px;
@@ -31,58 +31,58 @@
     font-size: 20px;
 }
 
-.rubens-frontend .profile-bio {
+.harr-frontend .profile-bio {
     max-width: 570px;
 }
 
-.rubens-frontend .profile-bio h2 {
+.harr-frontend .profile-bio h2 {
     font: 36px Georgia, serif;
     margin: 0 0 3px;
 }
 
-.rubens-frontend .profile-bio .eyebrow {
+.harr-frontend .profile-bio .eyebrow {
     margin-bottom: 5px;
 }
 
-.rubens-frontend .profile-handle {
+.harr-frontend .profile-handle {
     font-size: 12px;
     color: var(--gold);
     margin-bottom: 10px;
 }
 
-.rubens-frontend .profile-bio > p:last-child {
+.harr-frontend .profile-bio > p:last-child {
     color: var(--muted);
     font-size: 13px;
     margin-bottom: 0;
 }
 
-.rubens-frontend .profile-header .button {
+.harr-frontend .profile-header .button {
     margin-left: auto;
     white-space: nowrap;
 }
 
-.rubens-frontend .secondary {
+.harr-frontend .secondary {
     background: transparent;
     color: var(--gold);
 }
 
-.rubens-frontend .profile-stats {
+.harr-frontend .profile-stats {
     display: flex;
     gap: 50px;
     padding: 22px 0;
     border-top: 1px solid var(--line);
 }
 
-.rubens-frontend .profile-stats div {
+.harr-frontend .profile-stats div {
     display: flex;
     flex-direction: column;
 }
 
-.rubens-frontend .profile-stats strong {
+.harr-frontend .profile-stats strong {
     font: 28px Georgia, serif;
 }
 
-.rubens-frontend .profile-stats span {
+.harr-frontend .profile-stats span {
     color: var(--muted);
     font-size: 10px;
     text-transform: uppercase;
@@ -90,49 +90,49 @@
     margin-top: 5px;
 }
 
-.rubens-frontend #favoritos .movies-grid {
+.harr-frontend #favoritos .movies-grid {
     grid-template-columns: repeat(4, minmax(0, 180px));
 }
 
-.rubens-frontend #watchlist .movies-grid {
+.harr-frontend #watchlist .movies-grid {
     grid-template-columns: repeat(2, minmax(0, 180px));
 }
 
-.rubens-frontend .table-scroll {
+.harr-frontend .table-scroll {
     overflow-x: auto;
 }
 
-.rubens-frontend table {
+.harr-frontend table {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
     font-size: 13px;
 }
 
-.rubens-frontend th,
-.rubens-frontend td {
+.harr-frontend th,
+.harr-frontend td {
     padding: 16px 12px;
     border-bottom: 1px solid var(--line);
 }
 
-.rubens-frontend thead th {
+.harr-frontend thead th {
     color: var(--muted);
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-.rubens-frontend td {
+.harr-frontend td {
     color: var(--muted);
 }
 
-.rubens-frontend .diary-day {
+.harr-frontend .diary-day {
     color: var(--gold);
     font: 24px Georgia, serif;
     margin-right: 10px;
 }
 
-.rubens-frontend .demo-note {
+.harr-frontend .demo-note {
     color: var(--muted);
     font-size: 11px;
     margin-bottom: 30px;

@@ -1,157 +1,157 @@
 /* 7. RESPONSIVIDADE — tablet e celular. */
 @media (max-width: 950px) {
-    .rubens-frontend .nav-inner {
+    .harr-frontend .nav-inner {
         gap: 18px;
     }
 
-    .rubens-frontend .movies-grid {
+    .harr-frontend .movies-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 25px 18px;
     }
 
-    .rubens-frontend .list-grid {
+    .harr-frontend .list-grid {
         grid-template-columns: 1fr;
     }
 
-    .rubens-frontend .profile-header {
+    .harr-frontend .profile-header {
         flex-wrap: wrap;
     }
 
-    .rubens-frontend .profile-bio {
+    .harr-frontend .profile-bio {
         flex: 1;
     }
 
-    .rubens-frontend .profile-header .button {
+    .harr-frontend .profile-header .button {
         margin-left: 139px;
     }
 }
 
 @media (max-width: 650px) {
-    .rubens-frontend .container {
+    .harr-frontend .container {
         width: calc(100% - 32px);
     }
 
-    .rubens-frontend .nav-inner {
+    .harr-frontend .nav-inner {
         flex-wrap: wrap;
         gap: 12px;
         padding: 16px 0;
     }
 
-    .rubens-frontend .logo {
+    .harr-frontend .logo {
         font-size: 27px;
     }
 
-    .rubens-frontend .logo-icon {
+    .harr-frontend .logo-icon {
         font-size: 28px;
     }
 
-    .rubens-frontend .user-menu {
+    .harr-frontend .user-menu {
         padding-left: 15px;
         margin-left: auto;
     }
 
-    .rubens-frontend .section-heading h2 {
+    .harr-frontend .section-heading h2 {
         font-size: 19px;
     }
 
-    .rubens-frontend .section-heading > span {
+    .harr-frontend .section-heading > span {
         font-size: 8px;
         max-width: 110px;
     }
 
-    .rubens-frontend .movies-grid {
+    .harr-frontend .movies-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 24px 14px;
     }
 
-    .rubens-frontend .review {
+    .harr-frontend .review {
         gap: 14px;
     }
 
-    .rubens-frontend .review-author {
+    .harr-frontend .review-author {
         flex-wrap: wrap;
     }
 
-    .rubens-frontend .review-author .muted {
+    .harr-frontend .review-author .muted {
         display: none;
     }
 
-    .rubens-frontend .list-card {
+    .harr-frontend .list-card {
         gap: 18px;
         padding: 16px;
     }
 
-    .rubens-frontend .mini-posters img {
+    .harr-frontend .mini-posters img {
         width: 42px;
         height: 63px;
     }
 
-    .rubens-frontend .list-card h3 {
+    .harr-frontend .list-card h3 {
         font-size: 16px;
     }
 
-    .rubens-frontend .footer {
+    .harr-frontend .footer {
         flex-wrap: wrap;
         gap: 14px;
     }
 
-    .rubens-frontend .footer > span {
+    .harr-frontend .footer > span {
         margin-left: 0;
         width: 100%;
     }
 
-    .rubens-frontend .profile-header {
+    .harr-frontend .profile-header {
         gap: 20px;
     }
 
-    .rubens-frontend .profile-avatar {
+    .harr-frontend .profile-avatar {
         width: 75px;
         height: 75px;
         font-size: 34px;
     }
 
-    .rubens-frontend .profile-bio h2 {
+    .harr-frontend .profile-bio h2 {
         font-size: 29px;
     }
 
-    .rubens-frontend .profile-bio .eyebrow {
+    .harr-frontend .profile-bio .eyebrow {
         font-size: 8px;
     }
 
-    .rubens-frontend .profile-header .button {
+    .harr-frontend .profile-header .button {
         margin-left: 0;
     }
 
-    .rubens-frontend .profile-stats {
+    .harr-frontend .profile-stats {
         gap: 0;
         justify-content: space-between;
     }
 
-    .rubens-frontend #favoritos .movies-grid {
+    .harr-frontend #favoritos .movies-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .rubens-frontend th,
-.rubens-frontend td {
+    .harr-frontend th,
+.harr-frontend td {
         padding: 14px 8px;
         font-size: 11px;
     }
 
-    .rubens-frontend .diary-day {
+    .harr-frontend .diary-day {
         display: block;
     }
 
-    .rubens-frontend .demo-note {
+    .harr-frontend .demo-note {
         font-size: 10px;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .rubens-frontend {
+    .harr-frontend {
         scroll-behavior: auto;
     }
 
-    .rubens-frontend * {
+    .harr-frontend * {
         transition: none !important;
     }
 }

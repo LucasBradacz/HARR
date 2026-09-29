@@ -1,78 +1,28 @@
-<div class="page">
-  <div class="profile-header">
-    <% if @user.avatar_url.present? %>
-      <%= image_tag @user.avatar_url, class: "profile-avatar" %>
-    <% else %>
-      <div class="profile-avatar" style="display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.4rem;">
-        <%= @user.username.first.upcase %>
-      </div>
-    <% end %>
-
-    <div class="profile-info">
-      <h1><%= @user.username %></h1>
-      <% if @user.bio.present? %>
-        <p class="bio"><%= @user.bio %></p>
-      <% end %>
-
-      <div class="profile-stats">
-        <div>
-          <span class="stat-value"><%= @diary_entries.size %></span>
-          <span class="stat-label">Filmes</span>
-        </div>
-        <div>
-          <span class="stat-value"><%= @reviews.size %></span>
-          <span class="stat-label">Reviews</span>
-        </div>
-        <div>
-          <span class="stat-value"><%= @user.following.size %></span>
-          <span class="stat-label">Seguindo</span>
-        </div>
-        <div>
-          <span class="stat-value"><%= @user.followers.size %></span>
-          <span class="stat-label">Seguidores</span>
-        </div>
-      </div>
+<% content_for :title, "#{@user.username} | HARR" %>
+<main class="container page-content" id="conteudo">
+  <section class="profile-header">
+    <% if @user.avatar_url.present? %><%= image_tag @user.avatar_url, class: "profile-avatar", alt: "Avatar de #{@user.username}" %><% else %><div class="profile-avatar"><%= @user.username.first.upcase %></div><% end %>
+    <div class="profile-bio">
+      <p class="eyebrow">CAPITÃO DA SESSÃO</p><h2><%= @user.username %></h2>
+      <p class="profile-handle">@<%= @user.username %></p>
+      <% if @user.bio.present? %><p><%= @user.bio %></p><% end %>
     </div>
-
     <% if logged_in? && current_user != @user %>
-      <% if current_user.following.include?(@user) %>
-        <%= button_to "Seguindo", unfollow_path(@user.id), method: :delete, class: "follow-btn following" %>
-      <% else %>
-        <%= button_to "Seguir", follow_path(@user.id), method: :post, class: "follow-btn" %>
-      <% end %>
+      <div class="follow-form">
+        <% if current_user.following.include?(@user) %><%= button_to "Seguindo", unfollow_path(@user.id), method: :delete, class: "button secondary" %><% else %><%= button_to "Seguir", follow_path(@user.id), method: :post, class: "button" %><% end %>
+      </div>
     <% end %>
+  </section>
+  <div class="profile-stats">
+    <div><strong><%= @diary_entries.size %></strong><span>Filmes registrados</span></div>
+    <div><strong><%= @reviews.size %></strong><span>Reviews</span></div>
+    <div><strong><%= @user.following.size %></strong><span>Seguindo</span></div>
+    <div><strong><%= @user.followers.size %></strong><span>Seguidores</span></div>
   </div>
-
-  <div class="section-title">Diário</div>
-  <% if @diary_entries.any? %>
-    <ul class="entry-list">
-      <% @diary_entries.each do |entry| %>
-        <li>
-          <span class="entry-movie"><%= link_to entry.movie.title, movie_path(entry.movie) %></span>
-          <span class="stars">
-            <%= "★" * entry.rating.to_i %><span class="empty"><%= "★" * (5 - entry.rating.to_i) %></span>
-          </span>
-          <span class="entry-date"><%= entry.watched_on.strftime("%d/%m/%Y") %></span>
-        </li>
-      <% end %>
-    </ul>
-  <% else %>
-    <p style="color:var(--text-muted);">Nenhum filme registrado ainda.</p>
-  <% end %>
-
-  <div class="section-title">Reviews</div>
-  <% if @reviews.any? %>
-    <ul class="entry-list">
-      <% @reviews.each do |review| %>
-        <li>
-          <span class="entry-movie"><%= link_to review.movie.title, movie_path(review.movie) %></span>
-          <span class="stars">
-            <%= "★" * review.rating.to_i %><span class="empty"><%= "★" * (5 - review.rating.to_i) %></span>
-          </span>
-        </li>
-      <% end %>
-    </ul>
-  <% else %>
-    <p style="color:var(--text-muted);">Nenhuma review publicada ainda.</p>
-  <% end %>
-</div>
+  <section class="section" id="diario"><div class="section-heading"><h2>Diário</h2><span>HISTÓRICO DE EXIBIÇÕES</span></div>
+    <% if @diary_entries.any? %><ul class="entry-list"><% @diary_entries.each do |entry| %><li><span class="entry-movie"><%= link_to entry.movie.title, movie_path(entry.movie) %></span><span class="stars"><%= "★" * entry.rating.to_i %><span class="star-empty"><%= "★" * (5-entry.rating.to_i) %></span></span><span class="entry-date"><%= entry.watched_on.strftime("%d/%m/%Y") %></span></li><% end %></ul><% else %><p class="empty-state">Nenhum filme registrado ainda.</p><% end %>
+  </section>
+  <section class="section" id="reviews"><div class="section-heading"><h2>Reviews</h2><span>CRÍTICAS PUBLICADAS</span></div>
+    <% if @reviews.any? %><div class="review-list"><% @reviews.each do |review| %><article class="review-item"><h3><%= link_to review.movie.title, movie_path(review.movie) %></h3><div class="stars"><%= "★" * review.rating.to_i %><span class="star-empty"><%= "★" * (5-review.rating.to_i) %></span></div><% if review.body.present? %><p><%= review.body %></p><% end %></article><% end %></div><% else %><p class="empty-state">Nenhuma review publicada ainda.</p><% end %>
+  </section>
+</main>

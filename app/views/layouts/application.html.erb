@@ -1,43 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-  <title><%= content_for(:title) || "HARR" %></title>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="application-name" content="Harr">
-  <meta name="mobile-web-app-capable" content="yes">
+  <title><%= content_for(:title) || "HARR" %></title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-
-  <%= yield :head %>
-
-  <link rel="icon" href="/icon.png" type="image/png">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/icon.png">
-
-  <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "harr/01_base", "harr/02_header", "harr/03_cards", "harr/04_reviews", "harr/05_profile", "harr/06_responsive", "harr/07_navigation", "harr/08_pirate_theme", "harr/09_background", "harr/10_filters", "harr/11_top_ten", "harr/12_movie_dialog", "harr/13_interactions", "harr/14_home", "harr/15_search", "harr/16_profile_editor", "harr/17_ui", "harr/18_rails", "harr/19_harr_integration", "data-turbo-track": "reload" %>
   <%= javascript_importmap_tags %>
 </head>
-
-<body>
-<div class="navbar">
-  <%= link_to "HARR", root_path, class: "brand" %>
-  <nav>
-    <% if logged_in? %>
-      <%= link_to current_user.username, user_path(current_user.username) %>
-      <%= link_to "Watchlist", watchlist_path %>
-      <%= button_to "Sair", logout_path, method: :delete %>
-    <% else %>
-      <%= link_to "Login", new_session_path %>
-      <%= link_to "Cadastrar", new_registration_path, class: "btn-primary" %>
-    <% end %>
-  </nav>
-</div>
-
-<% flash.each do |type, msg| %>
-  <div class="flash"><%= msg %></div>
-<% end %>
-
-<%= yield %>
+<body class="harr-frontend">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <%= link_to root_path, class: "logo", aria: { label: "HARR — início" } do %>
+        <span aria-hidden="true" class="logo-icon"><img src="<%= asset_path('harr/bandeira.svg') %>" width="52" height="52" alt=""></span>
+        HARR<span class="logo-dot">.</span>
+      <% end %>
+      <span class="ship-name">FILMES, LISTAS E AVALIAÇÕES</span>
+      <details class="user-menu">
+        <summary>
+          <span class="mini-avatar"><%= logged_in? ? current_user.username.first.upcase : "?" %></span>
+          <span><%= logged_in? ? current_user.username : "Visitante" %></span>
+          <span aria-hidden="true">⌄</span>
+        </summary>
+        <div class="dropdown-content">
+          <% if logged_in? %>
+            <%= link_to "Meu perfil", user_path(current_user.username) %>
+            <%= link_to "Minha watchlist", watchlist_path %>
+            <%= button_to "Sair", logout_path, method: :delete, class: "logout-button" %>
+          <% else %>
+            <%= link_to "Login", new_session_path %>
+            <%= link_to "Cadastrar", new_registration_path %>
+          <% end %>
+        </div>
+      </details>
+    </div>
+  </header>
+  <div class="tabs-bar">
+    <nav aria-label="Abas principais" class="container tabs">
+      <%= link_to root_path, class: (controller_name == "movies" ? "active" : "") do %>⌂ <span>Início</span><% end %>
+      <%= link_to movies_path, class: (controller_name == "movies" ? "active" : "") do %>▣ <span>Filmes</span><% end %>
+      <%= link_to watchlist_path, class: (controller_name == "watchlist_items" ? "active" : "") do %>☷ <span>Listas</span><% end %>
+      <%= link_to(logged_in? ? user_path(current_user.username) : new_session_path, class: (controller_name == "users" ? "active" : "")) do %>◯ <span>Perfil</span><% end %>
+    </nav>
+  </div>
+  <% flash.each do |type, message| %><div class="container flash" role="<%= type == 'alert' ? 'alert' : 'status' %>"><%= message %></div><% end %>
+  <%= yield %>
+  <footer class="container footer"><%= link_to "⚓ HARR.", root_path, class: "logo" %><p>Compartilhe sua paixão pelo cinema.</p><span>Projeto acadêmico inspirado no Letterboxd.</span></footer>
 </body>
 </html>

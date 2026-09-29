@@ -1,5 +1,0 @@
-/* Only Rubens' layout is affected. */
-.rubens-frontend [hidden] { display: none !important; }
-.rubens-frontend .integration-notice { padding: 10px 16px; margin: 0; text-align: center; background: #192d34; color: #b9cbce; font-size: 12px; }
-.rubens-frontend .flash { padding: 12px; margin-top: 16px; border: 1px solid var(--line); }
-.rubens-frontend .film-popup:not([open]) { display: none; }

@@ -1,7 +1,1 @@
-<h1>Editar review</h1>
-<%= form_with model: @review, url: review_path(@review), local: true do |f| %>
-  <%= f.label :rating, "Nota" %> <%= f.number_field :rating, in: 1..5 %>
-  <%= f.label :body, "Sua review" %> <%= f.text_area :body %>
-  <%= f.check_box :contains_spoilers %> <%= f.label :contains_spoilers, "Contém spoilers" %>
-  <%= f.submit "Salvar" %>
-<% end %>
+<% content_for :title, "Editar review | HARR" %><main class="container page-content" id="conteudo"><%= link_to "← Voltar para o filme", movie_path(@review.movie), class: "back-link" %><div class="form-card"><p class="eyebrow">SUA CRÍTICA</p><h1>Editar review</h1><%= form_with model: @review, url: review_path(@review), local: true, class: "stacked" do |f| %><%= f.label :rating, "Nota" %><%= f.number_field :rating, in: 1..5 %><%= f.label :body, "Sua review" %><%= f.text_area :body %><label><%= f.check_box :contains_spoilers %> Contém spoilers</label><%= f.submit "Salvar", class: "button" %><% end %></div></main>

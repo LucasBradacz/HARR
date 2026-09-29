@@ -1,10 +1,10 @@
 /* 2. CABEÇALHO — details/summary abre o menu também por toque e teclado. */
-.rubens-frontend .navbar {
+.harr-frontend .navbar {
     background: #0c181c;
     border-bottom: 1px solid var(--line);
 }
 
-.rubens-frontend .nav-inner {
+.harr-frontend .nav-inner {
     min-height: 86px;
     display: flex;
     align-items: center;
@@ -12,7 +12,7 @@
     gap: 28px;
 }
 
-.rubens-frontend .logo {
+.harr-frontend .logo {
     display: inline-flex;
     align-items: center;
     font-family: Georgia, serif;
@@ -22,23 +22,23 @@
     white-space: nowrap;
 }
 
-.rubens-frontend .logo-icon {
+.harr-frontend .logo-icon {
     font-size: 33px;
     color: var(--gold);
     margin-right: 10px;
 }
 
-.rubens-frontend .logo-dot {
+.harr-frontend .logo-dot {
     color: var(--gold);
 }
 
-.rubens-frontend .user-menu {
+.harr-frontend .user-menu {
     position: relative;
     border-left: 1px solid var(--line);
     padding-left: 25px;
 }
 
-.rubens-frontend .user-menu summary {
+.harr-frontend .user-menu summary {
     display: flex;
     align-items: center;
     gap: 9px;
@@ -46,15 +46,15 @@
     font-size: 12px;
 }
 
-.rubens-frontend summary {
+.harr-frontend summary {
     list-style: none;
 }
 
-.rubens-frontend summary::-webkit-details-marker {
+.harr-frontend summary::-webkit-details-marker {
     display: none;
 }
 
-.rubens-frontend .mini-avatar {
+.harr-frontend .mini-avatar {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -67,11 +67,11 @@
     font-family: Georgia, serif;
 }
 
-.rubens-frontend .ochre {
+.harr-frontend .ochre {
     background: #68543a;
 }
 
-.rubens-frontend .dropdown-content {
+.harr-frontend .dropdown-content {
     position: absolute;
     top: 40px;
     right: 0;
@@ -84,13 +84,13 @@
     z-index: 10;
 }
 
-.rubens-frontend .dropdown-content a {
+.harr-frontend .dropdown-content a {
     display: block;
     padding: 8px 12px;
     font-size: 13px;
 }
 
-.rubens-frontend .dropdown-content a:hover {
+.harr-frontend .dropdown-content a:hover {
     background: #23393d;
 }
 

@@ -1,6 +1,1 @@
-<h1>Editar registro</h1>
-<%= form_with model: @diary_entry, url: movie_diary_entry_path(@movie, @diary_entry), local: true do |f| %>
-  <%= f.label :rating, "Nota" %> <%= f.number_field :rating, in: 1..5 %>
-  <%= f.label :watched_on, "Assistido em" %> <%= f.date_field :watched_on %>
-  <%= f.submit "Salvar" %>
-<% end %>
+<% content_for :title, "Editar diário | HARR" %><main class="container page-content" id="conteudo"><%= link_to "← Voltar para o filme", movie_path(@movie), class: "back-link" %><div class="form-card"><p class="eyebrow">HISTÓRICO</p><h1>Editar registro</h1><%= form_with model: @diary_entry, url: movie_diary_entry_path(@movie, @diary_entry), local: true, class: "stacked" do |f| %><%= f.label :rating, "Nota" %><%= f.number_field :rating, in: 1..5 %><%= f.label :watched_on, "Assistido em" %><%= f.date_field :watched_on %><%= f.submit "Salvar", class: "button" %><% end %></div></main>

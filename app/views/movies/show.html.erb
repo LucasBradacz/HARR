@@ -1,57 +1,74 @@
-<%= link_to "← Voltar para busca", movies_path %>
+<% content_for :title, "#{@movie.title} | HARR" %>
+<main class="container page-content" id="conteudo">
+  <%= link_to "← Voltar para filmes", movies_path, class: "back-link" %>
+  <section class="movie-detail">
+    <div>
+      <% if @movie.poster_url.present? %><%= image_tag @movie.poster_url, class: "movie-detail-poster", alt: "Cartaz de #{@movie.title}" %><% end %>
+    </div>
+    <div>
+      <p class="eyebrow">FICHA DO FILME</p>
+      <h1><%= @movie.title %></h1>
+      <p class="movie-year"><%= @movie.release_year %></p>
+      <p class="movie-synopsis"><%= @movie.synopsis.presence || "Sinopse não disponível." %></p>
+      <div class="genre-list"><% @movie.genres.each do |genre| %><span class="genre"><%= genre.name %></span><% end %></div>
+      <% if logged_in? %>
+        <div class="actions">
+          <% if current_user.watchlist_items.exists?(movie: @movie) %>
+            <%= button_to "Remover da watchlist", movie_watchlist_item_path(@movie), method: :delete, class: "button secondary" %>
+          <% else %>
+            <%= button_to "Adicionar à watchlist", movie_watchlist_item_path(@movie), method: :post, class: "button" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </section>
 
-<h1><%= @movie.title %> (<%= @movie.release_year %>)</h1>
-<% if @movie.poster_url.present? %><%= image_tag @movie.poster_url, width: 300 %><% end %>
-<p><%= @movie.synopsis %></p>
-<p><strong>Gêneros:</strong> <%= @movie.genres.map(&:name).join(", ") %></p>
-
-<% if logged_in? %>
-  <% if current_user.watchlist_items.exists?(movie: @movie) %>
-    <%= button_to "Remover da watchlist", movie_watchlist_item_path(@movie), method: :delete %>
-  <% else %>
-    <%= button_to "Adicionar à watchlist", movie_watchlist_item_path(@movie), method: :post %>
-  <% end %>
-<% end %>
-
-<hr>
-<h2>Diário</h2>
-<% if logged_in? %>
-  <%= form_with model: DiaryEntry.new, url: movie_diary_entries_path(@movie), local: true do |f| %>
-    <%= f.label :rating, "Nota" %> <%= f.number_field :rating, in: 1..5 %>
-    <%= f.label :watched_on, "Assistido em" %> <%= f.date_field :watched_on %>
-    <%= f.submit "Registrar" %>
-  <% end %>
-<% end %>
-<ul>
-  <% @movie.diary_entries.includes(:user).order(watched_on: :desc).each do |entry| %>
-    <li><%= entry.user.username %> assistiu em <%= entry.watched_on %> — <%= entry.rating %>/5</li>
-  <% end %>
-</ul>
-
-<hr>
-<h2>Reviews</h2>
-<% if logged_in? %>
-  <%= form_with model: Review.new, url: movie_reviews_path(@movie), local: true do |f| %>
-    <%= f.label :rating, "Nota" %> <%= f.number_field :rating, in: 1..5 %>
-    <%= f.label :body, "Sua review" %> <%= f.text_area :body %>
-    <%= f.check_box :contains_spoilers %> <%= f.label :contains_spoilers, "Contém spoilers" %>
-    <%= f.submit "Publicar" %>
-  <% end %>
-<% end %>
-
-<% if @movie.reviews.any? %>
-  <ul>
-    <% @movie.reviews.includes(:user).each do |review| %>
-      <li>
-        <strong><%= link_to review.user.username, user_path(review.user.username) %></strong> — <%= review.rating %>/5
-        <p><%= review.body %></p>
-        <% if logged_in? && review.user == current_user %>
-          <%= link_to "Editar", edit_review_path(review) %>
-          <%= button_to "Excluir", review_path(review), method: :delete %>
+  <section class="section">
+    <div class="section-heading"><h2>Diário</h2><span>EXIBIÇÕES REGISTRADAS</span></div>
+    <% if logged_in? %>
+      <div class="form-card">
+        <%= form_with model: DiaryEntry.new, url: movie_diary_entries_path(@movie), local: true, class: "stacked" do |f| %>
+          <%= f.label :rating, "Nota" %><%= f.number_field :rating, in: 1..5 %>
+          <%= f.label :watched_on, "Assistido em" %><%= f.date_field :watched_on, value: Date.current %>
+          <%= f.submit "Registrar no diário", class: "button" %>
         <% end %>
-      </li>
+      </div>
     <% end %>
-  </ul>
-<% else %>
-  <p>Nenhuma review ainda.</p>
-<% end %>
+    <div class="diary-list" style="margin-top:24px">
+      <% entries = @movie.diary_entries.includes(:user).order(watched_on: :desc) %>
+      <% if entries.any? %>
+        <% entries.each do |entry| %>
+          <article class="diary-item"><strong><%= link_to entry.user.username, user_path(entry.user.username) %></strong> assistiu em <%= entry.watched_on.strftime("%d/%m/%Y") %> — <span class="stars"><%= "★" * entry.rating.to_i %><span class="star-empty"><%= "★" * (5-entry.rating.to_i) %></span></span>
+          <% if logged_in? && entry.user == current_user %><div class="review-actions"><%= link_to "Editar", edit_movie_diary_entry_path(@movie, entry) %><%= button_to "Excluir", movie_diary_entry_path(@movie, entry), method: :delete, class: "danger", form_class: "inline-form" %></div><% end %></article>
+        <% end %>
+      <% else %><p class="empty-state">Nenhum registro no diário ainda.</p><% end %>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading"><h2>Reviews</h2><span>CRÍTICAS DA COMUNIDADE</span></div>
+    <% if logged_in? %>
+      <div class="form-card">
+        <%= form_with model: Review.new, url: movie_reviews_path(@movie), local: true, class: "stacked" do |f| %>
+          <%= f.label :rating, "Nota" %><%= f.number_field :rating, in: 1..5 %>
+          <%= f.label :body, "Sua review" %><%= f.text_area :body, placeholder: "O que você achou do filme?" %>
+          <label><%= f.check_box :contains_spoilers %> Contém spoilers</label>
+          <%= f.submit "Publicar review", class: "button" %>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="review-list" style="margin-top:24px">
+      <% if @movie.reviews.any? %>
+        <% @movie.reviews.includes(:user).order(created_at: :desc).each do |review| %>
+          <article class="review-item">
+            <div class="review-author"><%= link_to review.user.username, user_path(review.user.username) %></div>
+            <div class="movie-rating stars"><%= "★" * review.rating.to_i %><span class="star-empty"><%= "★" * (5-review.rating.to_i) %></span></div>
+            <% if review.contains_spoilers %><p class="eyebrow">CONTÉM SPOILERS</p><% end %>
+            <p><%= review.body.presence || "Sem texto." %></p>
+            <% if logged_in? && review.user == current_user %><div class="review-actions"><%= link_to "Editar", edit_review_path(review) %><%= button_to "Excluir", review_path(review), method: :delete, class: "danger", form_class: "inline-form" %></div><% end %>
+          </article>
+        <% end %>
+      <% else %><p class="empty-state">Nenhuma review ainda.</p><% end %>
+    </div>
+  </section>
+</main>

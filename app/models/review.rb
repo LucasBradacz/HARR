@@ -14,8 +14,7 @@ class Review < ApplicationRecord
     user.diary_entries.create!(
       movie: movie,
       rating: rating,
-      watched_at: Date.current,
-      notes: body
+      watched_on: Date.current
     )
   end
 end

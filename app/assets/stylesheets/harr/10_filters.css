@@ -1,24 +1,24 @@
-/* Interface do front-end; interações nos módulos Stimulus de Rubens. */
-.rubens-frontend input,
-.rubens-frontend select,
-.rubens-frontend textarea,
-.rubens-frontend button {
+/* Interface do front-end; interações nos módulos Stimulus de HARR. */
+.harr-frontend input,
+.harr-frontend select,
+.harr-frontend textarea,
+.harr-frontend button {
     font: inherit;
 }
 
-.rubens-frontend button {
+.harr-frontend button {
     cursor: pointer;
 }
 
-.rubens-frontend button:focus-visible,
-.rubens-frontend input:focus-visible,
-.rubens-frontend select:focus-visible,
-.rubens-frontend textarea:focus-visible {
+.harr-frontend button:focus-visible,
+.harr-frontend input:focus-visible,
+.harr-frontend select:focus-visible,
+.harr-frontend textarea:focus-visible {
     outline: 2px solid var(--gold);
     outline-offset: 3px;
 }
 
-.rubens-frontend .catalog-tools {
+.harr-frontend .catalog-tools {
     margin-bottom: 32px;
     padding: 22px;
     background: #17282cee;
@@ -26,16 +26,16 @@
     border-radius: 4px;
 }
 
-.rubens-frontend .search-label,
-.rubens-frontend .filter-grid label,
-.rubens-frontend .comment-label {
+.harr-frontend .search-label,
+.harr-frontend .filter-grid label,
+.harr-frontend .comment-label {
     display: block;
     color: var(--text);
     font-size: 12px;
     font-weight: bold;
 }
 
-.rubens-frontend .search-box {
+.harr-frontend .search-box {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -46,12 +46,12 @@
     background: #0e1c20;
 }
 
-.rubens-frontend .search-box > span {
+.harr-frontend .search-box > span {
     color: var(--gold);
     font-size: 25px;
 }
 
-.rubens-frontend .search-box input {
+.harr-frontend .search-box input {
     min-width: 0;
     width: 100%;
     padding: 12px 0;
@@ -60,18 +60,18 @@
     background: transparent;
 }
 
-.rubens-frontend input::placeholder,
-.rubens-frontend textarea::placeholder {
+.harr-frontend input::placeholder,
+.harr-frontend textarea::placeholder {
     color: #9aadaa;
 }
 
-.rubens-frontend .filter-grid {
+.harr-frontend .filter-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 16px;
 }
 
-.rubens-frontend .filter-grid select {
+.harr-frontend .filter-grid select {
     display: block;
     width: 100%;
     margin-top: 7px;
@@ -82,7 +82,7 @@
     border-radius: 3px;
 }
 
-.rubens-frontend .prototype-note {
+.harr-frontend .prototype-note {
     margin: 14px 0 0;
     color: #b4beb3;
     font-size: 11px;

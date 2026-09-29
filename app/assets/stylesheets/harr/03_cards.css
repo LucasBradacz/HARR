@@ -1,9 +1,9 @@
 /* 4. CARTAZES — o mesmo componente é usado no início e no perfil. */
-.rubens-frontend .section {
+.harr-frontend .section {
     margin: 34px 0 42px;
 }
 
-.rubens-frontend .section-heading {
+.harr-frontend .section-heading {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
@@ -13,36 +13,36 @@
     margin-bottom: 21px;
 }
 
-.rubens-frontend .section-heading h2 {
+.harr-frontend .section-heading h2 {
     font-family: Georgia, serif;
     font-size: 21px;
     font-weight: normal;
     margin: 0;
 }
 
-.rubens-frontend .section-heading > span {
+.harr-frontend .section-heading > span {
     color: var(--muted);
     font-size: 9px;
     letter-spacing: 1.2px;
     text-align: right;
 }
 
-.rubens-frontend .movies-grid {
+.harr-frontend .movies-grid {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 18px;
     align-items: start;
 }
 
-.rubens-frontend .movie-card {
+.harr-frontend .movie-card {
     min-width: 0;
 }
 
-.rubens-frontend .movie-details summary {
+.harr-frontend .movie-details summary {
     cursor: pointer;
 }
 
-.rubens-frontend .poster-wrapper {
+.harr-frontend .poster-wrapper {
     display: block;
     position: relative;
     overflow: hidden;
@@ -53,17 +53,17 @@
     transition: border-color .2s, transform .2s;
 }
 
-.rubens-frontend .poster-wrapper img {
+.harr-frontend .poster-wrapper img {
     width: 100%;
     height: 100%;
 }
 
-.rubens-frontend .movie-details summary:hover .poster-wrapper {
+.harr-frontend .movie-details summary:hover .poster-wrapper {
     border-color: var(--gold);
     transform: translateY(-3px);
 }
 
-.rubens-frontend .poster-hint {
+.harr-frontend .poster-hint {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -77,13 +77,13 @@
     transition: opacity .2s;
 }
 
-.rubens-frontend .movie-details summary:hover .poster-hint,
-.rubens-frontend .movie-details summary:focus-visible .poster-hint,
-.rubens-frontend .movie-details[open] .poster-hint {
+.harr-frontend .movie-details summary:hover .poster-hint,
+.harr-frontend .movie-details summary:focus-visible .poster-hint,
+.harr-frontend .movie-details[open] .poster-hint {
     opacity: 1;
 }
 
-.rubens-frontend .movie-title {
+.harr-frontend .movie-title {
     display: block;
     margin-top: 10px;
     font-size: 12px;
@@ -91,7 +91,7 @@
     line-height: 1.5;
 }
 
-.rubens-frontend .movie-meta {
+.harr-frontend .movie-meta {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -101,13 +101,13 @@
     font-size: 10px;
 }
 
-.rubens-frontend .movie-rating {
+.harr-frontend .movie-rating {
     color: var(--gold);
     letter-spacing: 1px;
     white-space: nowrap;
 }
 
-.rubens-frontend .synopsis {
+.harr-frontend .synopsis {
     margin-top: 10px;
     border-top: 1px solid var(--line);
     padding-top: 12px;
@@ -115,11 +115,11 @@
     color: var(--muted);
 }
 
-.rubens-frontend .synopsis strong {
+.harr-frontend .synopsis strong {
     color: var(--text);
 }
 
-.rubens-frontend .synopsis p {
+.harr-frontend .synopsis p {
     margin: 6px 0;
 }
 

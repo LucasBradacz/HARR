@@ -1,11 +1,11 @@
 /* 12. TOP 10 E BOTÕES DOS CARTAZES */
-.rubens-frontend .top-grid {
+.harr-frontend .top-grid {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 24px 18px;
 }
 
-.rubens-frontend .movie-open {
+.harr-frontend .movie-open {
     display: block;
     width: 100%;
     padding: 0;
@@ -15,17 +15,17 @@
     text-align: left;
 }
 
-.rubens-frontend .movie-open:hover .poster-wrapper {
+.harr-frontend .movie-open:hover .poster-wrapper {
     border-color: var(--gold);
     transform: translateY(-3px);
 }
 
-.rubens-frontend .movie-open:hover .poster-hint,
-.rubens-frontend .movie-open:focus-visible .poster-hint {
+.harr-frontend .movie-open:hover .poster-hint,
+.harr-frontend .movie-open:focus-visible .poster-hint {
     opacity: 1;
 }
 
-.rubens-frontend .rank-number {
+.harr-frontend .rank-number {
     position: absolute;
     top: 9px;
     left: 9px;
@@ -41,7 +41,7 @@
     font: bold 19px Georgia, serif;
 }
 
-.rubens-frontend .review-film {
+.harr-frontend .review-film {
     flex-shrink: 0;
     width: 76px;
     padding: 0;
