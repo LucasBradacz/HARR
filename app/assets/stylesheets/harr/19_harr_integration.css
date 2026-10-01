@@ -1,4 +1,3 @@
-
 .harr-frontend .page-content { padding: 42px 0 56px; min-height: 65vh; }
 .harr-frontend .notice { padding: 12px 16px; border: 1px solid var(--line); background: #192d34; margin: 0 0 18px; color: var(--muted); }
 .harr-frontend .flash { padding: 12px 16px; margin: 16px auto 0; border: 1px solid var(--line); background: #192d34; }
@@ -48,5 +47,195 @@
 .harr-frontend .entry-movie { flex:1; font-weight:bold; }
 .harr-frontend .entry-date { color:var(--muted); font-size:11px; }
 .harr-frontend .logout-button { background:none; border:0; color:inherit; padding:0; font:inherit; cursor:pointer; }
+.harr-frontend .hint { color:var(--muted); font-size:11px; }
+.harr-frontend .field { display:grid; gap:4px; }
 @media (max-width: 850px) { .harr-frontend .movies-grid { grid-template-columns:repeat(4,minmax(0,1fr)); } .harr-frontend .movie-detail { grid-template-columns:180px 1fr; } }
 @media (max-width: 600px) { .harr-frontend .container { width:min(100% - 32px,1120px); } .harr-frontend .movies-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; } .harr-frontend .movie-detail { grid-template-columns:1fr; } .harr-frontend .movie-detail-poster { max-width:210px; } .harr-frontend .profile-header { flex-wrap:wrap; } .harr-frontend .follow-form { margin-left:0; width:100%; } .harr-frontend .profile-stats { gap:22px; flex-wrap:wrap; } }
+
+/* === PÁGINA DO FILME === */
+.harr-frontend .film-hero {
+    position: relative;
+    overflow: hidden;
+    background: #0c181c;
+    border-bottom: 1px solid var(--line);
+}
+.harr-frontend .film-hero-backdrop {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center 20%;
+    filter: blur(18px) brightness(0.35);
+    transform: scale(1.08);
+    z-index: 0;
+}
+.harr-frontend .film-hero-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: flex-end;
+    gap: 32px;
+    padding: 48px 0 32px;
+}
+.harr-frontend .film-hero-poster {
+    flex-shrink: 0;
+    width: 200px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.7);
+}
+.harr-frontend .film-hero-info {
+    flex: 1;
+    min-width: 0;
+    padding-bottom: 4px;
+}
+.harr-frontend .film-title {
+    font: bold 36px Georgia, serif;
+    margin: 0 0 10px;
+    line-height: 1.2;
+}
+.harr-frontend .film-year {
+    font-size: 22px;
+    font-weight: normal;
+    color: var(--muted);
+    margin-left: 8px;
+}
+.harr-frontend .film-synopsis {
+    color: #c2ced2;
+    font-size: 14px;
+    max-width: 680px;
+    margin: 14px 0 0;
+    line-height: 1.7;
+}
+.harr-frontend .film-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+.harr-frontend .film-action-btn {
+    min-height: 38px;
+    padding: 8px 18px;
+    font-size: 12px;
+}
+
+/* formulário de log */
+.harr-frontend .log-form-grid {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+}
+.harr-frontend .star-picker {
+    display: flex;
+    gap: 4px;
+    margin-top: 10px;
+    user-select: none;
+}
+.harr-frontend .star-pick-radio {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+.harr-frontend .star-pick-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 48px;
+    line-height: 1;
+    color: #3d5054;
+    transition: color 0.1s;
+}
+.harr-frontend .star-picker:hover .star-pick-label {
+    color: var(--gold);
+}
+.harr-frontend .star-picker:hover .star-pick-label:hover ~ .star-pick-label {
+    color: #3d5054;
+}
+.harr-frontend .star-pick-label--on .star-pick-icon {
+    color: var(--gold);
+}
+.harr-frontend .spoiler-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 14px;
+    cursor: pointer;
+}
+.harr-frontend .log-form-grid > .field > label {
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* reviews da página do filme */
+.harr-frontend .film-review {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+}
+.harr-frontend .film-review:last-child {
+    border-bottom: none;
+}
+.harr-frontend .film-review-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+.harr-frontend .film-review-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid var(--line);
+}
+.harr-frontend .film-review-avatar--initial {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #315253;
+    color: #eee8d9;
+    font: 16px Georgia, serif;
+}
+.harr-frontend .film-review-author {
+    font-weight: bold;
+    font-size: 13px;
+}
+.harr-frontend .film-review-author a:hover {
+    color: var(--gold);
+}
+.harr-frontend .film-review-stars {
+    font-size: 13px;
+    margin-top: 2px;
+}
+.harr-frontend .film-review-date {
+    margin-left: auto;
+    color: var(--muted);
+    font-size: 11px;
+    white-space: nowrap;
+}
+.harr-frontend .film-review-actions {
+    margin-left: 12px;
+    margin-top: 0;
+}
+.harr-frontend .film-review-body {
+    color: #c8d8e0;
+    font: 15px/1.7 Georgia, serif;
+    margin: 0;
+    max-width: 780px;
+}
+.harr-frontend .spoiler-warning {
+    margin: 0 0 8px;
+    font-size: 10px;
+}
+
+@media (max-width: 700px) {
+    .harr-frontend .film-hero-inner { flex-direction: column; align-items: flex-start; padding: 24px 0 20px; }
+    .harr-frontend .film-hero-poster { width: 130px; }
+    .harr-frontend .film-title { font-size: 26px; }
+}

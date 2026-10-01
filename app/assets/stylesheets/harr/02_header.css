@@ -84,14 +84,29 @@
     z-index: 10;
 }
 
-.harr-frontend .dropdown-content a {
+.harr-frontend .dropdown-content a,
+.harr-frontend .dropdown-content .logout-button {
     display: block;
+    width: 100%;
     padding: 8px 12px;
     font-size: 13px;
+    text-align: left;
+    background: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-family: inherit;
+    border-radius: 0;
+    box-shadow: none;
 }
 
-.harr-frontend .dropdown-content a:hover {
+.harr-frontend .dropdown-content a:hover,
+.harr-frontend .dropdown-content .logout-button:hover {
     background: #23393d;
 }
 
-
+/* remove o form wrapper que button_to gera */
+.harr-frontend .dropdown-content form {
+    margin: 0;
+    padding: 0;
+}

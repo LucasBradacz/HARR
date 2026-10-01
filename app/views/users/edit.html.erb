@@ -1,0 +1,41 @@
+<% content_for :title, "Editar perfil | HARR" %>
+<main class="container page-content" id="conteudo">
+  <%= link_to "← Voltar para o perfil", user_path(@user.username), class: "back-link" %>
+
+  <div class="page-heading">
+    <p class="eyebrow">MEU PERFIL</p>
+    <h1>Editar perfil</h1>
+  </div>
+
+  <%= form_with model: @user, url: user_path(@user.username), method: :patch,
+        multipart: true, local: true, class: "form-card stacked" do |f| %>
+    <% if @user.errors.any? %>
+      <div class="flash flash-alert" role="alert">
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :avatar, "Foto de perfil" %>
+      <% if @user.avatar.attached? %>
+        <div style="margin-bottom: 10px;">
+          <%= image_tag @user.avatar, class: "profile-avatar", alt: "Avatar atual" %>
+        </div>
+      <% end %>
+      <%= f.file_field :avatar, accept: "image/png,image/jpeg,image/gif,image/webp", class: "input" %>
+      <span class="hint">PNG, JPG, GIF ou WebP. Deixe em branco para manter o atual.</span>
+    </div>
+
+    <div class="field">
+      <%= f.label :bio, "Bio" %>
+      <%= f.text_area :bio, placeholder: "Fale um pouco sobre você...", maxlength: 300, rows: 4, class: "input" %>
+      <span class="hint">Máximo de 300 caracteres.</span>
+    </div>
+
+    <%= f.submit "Salvar alterações", class: "button" %>
+  <% end %>
+</main>

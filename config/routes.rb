@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "movies#index"
+  root "home#index"
 
   resources :movies, only: [:index, :show] do
     resources :reviews, only: [:create]
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resource :registration, only: [:new, :create]
 
-  resources :users, only: [:show], param: :username
+  resources :users, only: [:show, :edit, :update], param: :username
 
   post "follows/:followed_id", to: "follows#create", as: :follow
   delete "follows/:followed_id", to: "follows#destroy", as: :unfollow

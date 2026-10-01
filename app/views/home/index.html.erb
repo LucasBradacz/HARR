@@ -1,0 +1,49 @@
+<% content_for :title, "Início | HARR" %>
+<main class="container page-content" id="conteudo">
+  <div class="page-heading">
+    <p class="eyebrow">BEM-VINDO AO HARR</p>
+    <h1>O que a tripulação andou assistindo</h1>
+    <p>Reviews recentes de toda a comunidade.</p>
+  </div>
+
+  <section class="section home-reviews">
+    <div class="section-heading">
+      <h2>Atividade recente</h2>
+    </div>
+
+    <% if @recent_reviews.any? %>
+      <% @recent_reviews.each do |review| %>
+        <article class="community-review">
+          <%= link_to movie_path(review.movie) do %>
+            <%= image_tag review.movie.poster_url,
+                  class: "review-poster",
+                  alt: "Pôster de #{review.movie.title}",
+                  loading: "lazy" if review.movie.poster_url.present? %>
+          <% end %>
+
+          <div class="review-content">
+            <h3>
+              <%= link_to review.movie.title, movie_path(review.movie), class: "title-button" %>
+              <span><%= review.movie.release_year %></span>
+            </h3>
+
+            <div class="review-user">
+              <span>por <%= link_to review.user.username, user_path(review.user.username) %></span>
+              <span class="review-stars"><%= "★" * review.rating.to_i %><span style="opacity:0.25"><%= "★" * (5 - review.rating.to_i) %></span></span>
+              <% if review.contains_spoilers %>
+                <span class="eyebrow" style="font-size:9px">Contém spoilers</span>
+              <% end %>
+              <time datetime="<%= review.created_at.iso8601 %>"><%= review.created_at.strftime("%d/%m/%Y") %></time>
+            </div>
+
+            <% if review.body.present? %>
+              <p class="review-text"><%= review.body %></p>
+            <% end %>
+          </div>
+        </article>
+      <% end %>
+    <% else %>
+      <p class="empty-state">Nenhuma review publicada ainda. Seja o primeiro a avaliar um filme!</p>
+    <% end %>
+  </section>
+</main>
