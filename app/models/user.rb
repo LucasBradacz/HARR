@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :passive_follows, class_name: "Follow", foreign_key: :followed_id, dependent: :destroy
   has_many :followers, through: :passive_follows, source: :follower
 
+  has_one_attached :avatar
+
   validates :username, presence: true,
                        uniqueness: { case_sensitive: false },
                        length: { in: 3..30 },
@@ -22,4 +24,15 @@ class User < ApplicationRecord
                     format: { with: URI::MailTo::EMAIL_REGEXP, message: "deve ser um e-mail válido" }
 
   validates :password, length: { maximum: 72 }, allow_nil: true
+
+  validate :avatar_format, if: -> { avatar.attached? }
+
+  private
+
+  def avatar_format
+    unless avatar.content_type.in?(%w[image/jpeg image/png image/gif image/webp])
+      errors.add(:avatar, "deve ser uma imagem (JPEG, PNG, GIF ou WebP)")
+      avatar.purge
+    end
+  end
 end

@@ -24,6 +24,17 @@
 .harr-frontend .search-box .button {
     flex-shrink: 0;
     border-radius: 5px;
+    background: #c9a84c;
+    border-color: #e0c070;
+    color: #0e1e22;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.harr-frontend .search-box .button:hover {
+    background: #ebcd92;
+    border-color: #ebcd92;
+    color: #0e1e22;
 }
 .harr-frontend .search-box:focus-within {
     border-color: var(--gold);
@@ -47,4 +58,3 @@
     background: transparent;
     font-size: 12px;
 }
-

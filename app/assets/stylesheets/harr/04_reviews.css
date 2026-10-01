@@ -2,49 +2,64 @@
 .harr-frontend .review {
     display: flex;
     align-items: flex-start;
-    gap: 20px;
+    gap: 18px;
     border-bottom: 1px solid var(--line);
-    padding: 0 0 22px;
-    margin-bottom: 22px;
+    padding: 18px 0;
+    margin-bottom: 0;
+}
+
+.harr-frontend .review-poster {
+    flex-shrink: 0;
+    width: 78px;
+    height: 117px;
+    border-radius: 3px;
+    object-fit: cover;
+    border: 1px solid var(--line);
+    transition: border-color 0.15s;
+}
+
+.harr-frontend .review-poster:hover {
+    border-color: var(--gold);
 }
 
 .harr-frontend .review > img {
     flex-shrink: 0;
-    width: 76px;
-    height: 114px;
+    width: 78px;
+    height: 117px;
     border-radius: 3px;
+    object-fit: cover;
 }
 
 .harr-frontend .review-author {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 10px;
+    font-size: 12px;
     margin-bottom: 8px;
 }
 
 .harr-frontend .review h3 {
     font-family: Georgia, serif;
-    font-size: 20px;
-    margin-bottom: 1px;
+    font-size: 22px;
+    margin-bottom: 2px;
 }
 
 .harr-frontend .review h3 span {
     font-family: Arial, sans-serif;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: normal;
-    margin-left: 5px;
+    margin-left: 6px;
 }
 
 .harr-frontend .review .movie-rating {
-    margin-bottom: 7px;
-    font-size: 13px;
+    margin-bottom: 8px;
+    font-size: 15px;
 }
 
 .harr-frontend .review p:not(.review-author):not(.movie-rating) {
     color: var(--muted);
-    font-size: 12px;
-    margin-bottom: 7px;
+    font-size: 14px;
+    margin-bottom: 8px;
 }
 
 .harr-frontend .list-grid {
@@ -130,4 +145,3 @@
     margin-left: auto;
     font-size: 10px;
 }
-

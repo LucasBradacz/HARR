@@ -39,7 +39,7 @@
   </header>
   <div class="tabs-bar">
     <nav aria-label="Abas principais" class="container tabs">
-      <%= link_to root_path, class: (controller_name == "movies" ? "active" : "") do %>⌂ <span>Início</span><% end %>
+      <%= link_to root_path, class: (controller_name == "home" ? "active" : "") do %>⌂ <span>Início</span><% end %>
       <%= link_to movies_path, class: (controller_name == "movies" ? "active" : "") do %>▣ <span>Filmes</span><% end %>
       <%= link_to watchlist_path, class: (controller_name == "watchlist_items" ? "active" : "") do %>☷ <span>Listas</span><% end %>
       <%= link_to(logged_in? ? user_path(current_user.username) : new_session_path, class: (controller_name == "users" ? "active" : "")) do %>◯ <span>Perfil</span><% end %>
