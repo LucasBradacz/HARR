@@ -8,6 +8,9 @@
     min-height: 72px;
 }
 .harr-frontend .tabs-bar {
+    position: sticky;
+    top: 86px;
+    z-index: 99;
     background: #142529;
     border-bottom: 1px solid var(--line);
 }

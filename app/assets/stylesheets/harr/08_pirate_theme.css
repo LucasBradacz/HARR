@@ -6,6 +6,9 @@
 
 /* Cabeçalho de madeira escura e bandeira da tripulação. */
 .harr-frontend .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     background-color: #221e1a;
     background-image: repeating-linear-gradient(0deg, transparent 0 22px, #0003 23px 24px);
     border-bottom: 1px solid #836c48;
