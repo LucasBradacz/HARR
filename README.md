@@ -11,8 +11,7 @@ Plataforma para registrar, avaliar e compartilhar filmes assistidos. Projeto aca
 
 ## 🌐 Projeto deployado
 
-> _Adicione aqui a URL do projeto no Render_
-> `https://harr.onrender.com`
+> https://harr-esd9.onrender.com/
 
 ---
 
