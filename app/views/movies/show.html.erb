@@ -81,8 +81,8 @@
       <% @movie.reviews.includes(:user).order(created_at: :desc).each do |review| %>
         <article class="film-review">
           <div class="film-review-header">
-            <% if review.user.avatar.attached? %>
-              <%= image_tag review.user.avatar, class: "film-review-avatar", alt: review.user.username %>
+            <% if review.user.avatar_url.present? %>
+              <%= image_tag review.user.avatar_url, class: "film-review-avatar", alt: review.user.username %>
             <% else %>
               <div class="film-review-avatar film-review-avatar--initial"><%= review.user.username.first.upcase %></div>
             <% end %>

@@ -11,7 +11,26 @@ class UsersController < ApplicationController
   def edit; end
 
   def update
-    if @user.update(user_params)
+    attrs = user_params
+
+    if params[:user][:avatar].present?
+      file = params[:user][:avatar]
+      allowed = %w[image/jpeg image/png image/gif image/webp]
+      max_size = 500.kilobytes
+
+      if !allowed.include?(file.content_type)
+        @user.errors.add(:avatar_url, "deve ser uma imagem (JPEG, PNG, GIF ou WebP)")
+        render :edit, status: :unprocessable_entity and return
+      elsif file.size > max_size
+        @user.errors.add(:avatar_url, "deve ter no máximo 500KB")
+        render :edit, status: :unprocessable_entity and return
+      else
+        base64 = Base64.strict_encode64(file.read)
+        attrs = attrs.merge(avatar_url: "data:#{file.content_type};base64,#{base64}")
+      end
+    end
+
+    if @user.update(attrs)
       redirect_to user_path(@user.username), notice: "Perfil atualizado com sucesso."
     else
       render :edit, status: :unprocessable_entity
@@ -37,6 +56,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:bio, :avatar)
+    params.require(:user).permit(:bio)
   end
 end

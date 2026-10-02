@@ -1,8 +1,8 @@
 <% content_for :title, "#{@user.username} | HARR" %>
 <main class="container page-content" id="conteudo">
   <section class="profile-header">
-    <% if @user.avatar.attached? %>
-      <%= image_tag @user.avatar, class: "profile-avatar", alt: "Avatar de #{@user.username}" %>
+    <% if @user.avatar_url.present? %>
+      <%= image_tag @user.avatar_url, class: "profile-avatar", alt: "Avatar de #{@user.username}" %>
     <% else %>
       <div class="profile-avatar"><%= @user.username.first.upcase %></div>
     <% end %>

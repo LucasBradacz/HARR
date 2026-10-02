@@ -21,9 +21,9 @@
 
     <div class="field">
       <%= f.label :avatar, "Foto de perfil" %>
-      <% if @user.avatar.attached? %>
+      <% if @user.avatar_url.present? %>
         <div style="margin-bottom: 10px;">
-          <%= image_tag @user.avatar, class: "profile-avatar", alt: "Avatar atual" %>
+          <%= image_tag @user.avatar_url, class: "profile-avatar", alt: "Avatar atual" %>
         </div>
       <% end %>
       <%= f.file_field :avatar, accept: "image/png,image/jpeg,image/gif,image/webp", class: "input" %>
