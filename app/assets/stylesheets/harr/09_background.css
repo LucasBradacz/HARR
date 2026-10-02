@@ -10,10 +10,9 @@
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    background-image: url('harr/mapa.svg'), url('harr/navio.svg');
+    background-image: url('../images/harr/mapa.svg'), url('../images/harr/navio.svg');
     background-position: right 120px, left bottom;
     background-size: 780px, 350px;
     background-repeat: repeat-y, no-repeat;
     opacity: 0.055;
 }
-

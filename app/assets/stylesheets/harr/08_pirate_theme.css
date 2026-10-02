@@ -54,7 +54,7 @@
     position: relative;
     padding: 23px 90px 23px 26px;
     background-color: #dfcca2;
-    background-image: linear-gradient(90deg, #e7d6b4f5, #d4b885dd), url('harr/mapa.svg');
+    background-image: linear-gradient(90deg, #e7d6b4f5, #d4b885dd), url('../images/harr/mapa.svg');
     background-position: center, right center;
     background-size: auto, 490px;
     border: 1px solid #9b7c4f;
@@ -136,7 +136,7 @@
 
 /* Camarote: navio, linhas de mapa e recado da capitã. */
 .harr-frontend .account-panel {
-    background: #1c3031 url('harr/mapa.svg') center top / 400px no-repeat;
+    background: #1c3031 url('../images/harr/mapa.svg') center top / 400px no-repeat;
     border: 1px solid #897149;
     border-top: 5px double #c5a26b;
 }
