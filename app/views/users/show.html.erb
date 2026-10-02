@@ -69,10 +69,7 @@
                 <%= link_to review.movie.title, movie_path(review.movie) %>
                 <span><%= review.movie.release_year %></span>
               </h3>
-              <div class="movie-rating stars">
-                <%= "★" * review.rating.to_i %>
-                <span class="star-empty"><%= "★" * (5 - review.rating.to_i) %></span>
-              </div>
+              <div class="movie-rating stars"><%= "★" * review.rating.to_i %><span class="star-empty"><%= "★" * (5 - review.rating.to_i) %></span></div>
               <% if review.contains_spoilers %>
                 <p class="eyebrow" style="font-size:9px">Contém spoilers</p>
               <% end %>

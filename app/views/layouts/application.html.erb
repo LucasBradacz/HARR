@@ -21,7 +21,11 @@
       <span class="ship-name">FILMES, LISTAS E AVALIAÇÕES</span>
       <details class="user-menu">
         <summary>
-          <span class="mini-avatar"><%= logged_in? ? current_user.username.first.upcase : "?" %></span>
+          <% if logged_in? && current_user.avatar.attached? %>
+            <%= image_tag current_user.avatar, class: "mini-avatar mini-avatar--photo", alt: current_user.username %>
+          <% else %>
+            <span class="mini-avatar"><%= logged_in? ? current_user.username.first.upcase : "?" %></span>
+          <% end %>
           <span><%= logged_in? ? current_user.username : "Visitante" %></span>
           <span aria-hidden="true">⌄</span>
         </summary>

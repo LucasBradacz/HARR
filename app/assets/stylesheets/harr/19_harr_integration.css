@@ -19,14 +19,15 @@
 .harr-frontend .genre-list { display:flex; flex-wrap:wrap; gap:8px; margin:18px 0; }
 .harr-frontend .genre { border:1px solid var(--line); padding:5px 9px; border-radius:3px; color:var(--muted); font-size:11px; }
 .harr-frontend .actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
-.harr-frontend .stacked { display:grid; gap:8px; max-width:650px; }
+.harr-frontend .stacked { display:grid; gap:8px; }
 .harr-frontend .stacked label { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.7px; }
+.harr-frontend .stacked .star-pick-label { font-size:36px; text-transform:none; letter-spacing:0; color:#3d5054; }
 .harr-frontend .stacked input,.harr-frontend .stacked textarea,.harr-frontend .stacked select { width:100%; border:1px solid #476166; border-radius:5px; background:#0c1d23; color:var(--text); padding:10px 12px; }
 .harr-frontend .stacked textarea { min-height:120px; resize:vertical; }
 .harr-frontend .stacked input[type=checkbox] { width:auto; }
 .harr-frontend .form-card { padding:24px; border:1px solid var(--line); background:var(--surface); border-radius:5px; max-width:700px; }
 .harr-frontend .section { margin-top:42px; }
-.harr-frontend .review-list,.harr-frontend .diary-list { display:grid; gap:18px; }
+.harr-frontend .review-list,.harr-frontend .diary-list { display:grid; gap:0; }
 .harr-frontend .review-item,.harr-frontend .diary-item { border-bottom:1px solid var(--line); padding-bottom:18px; }
 .harr-frontend .review-item:last-child,.harr-frontend .diary-item:last-child { border-bottom:0; }
 .harr-frontend .review-actions { display:flex; gap:12px; margin-top:10px; font-size:11px; }
@@ -120,40 +121,45 @@
 /* formulário de log */
 .harr-frontend .log-form-grid {
     display: flex;
+    flex-direction: row;
     gap: 32px;
     align-items: flex-start;
 }
+.harr-frontend .log-form-grid .field:first-child {
+    flex: 1;
+}
+/* Star picker — CSS puro, sem JS, ordem reversa no DOM */
 .harr-frontend .star-picker {
     display: flex;
-    gap: 4px;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 0;
     margin-top: 10px;
     user-select: none;
 }
 .harr-frontend .star-pick-radio {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-    pointer-events: none;
+    display: none;
 }
 .harr-frontend .star-pick-label {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 56px;
+    font-size: 96px;
     line-height: 1;
+    cursor: pointer;
     color: #3d5054;
     transition: color 0.1s;
 }
-.harr-frontend .star-picker:hover .star-pick-label {
+/* Hover: ilumina a label hovered e todas as seguintes (que no DOM são as anteriores) */
+.harr-frontend .star-pick-label:hover,
+.harr-frontend .star-pick-label:hover ~ .star-pick-label {
     color: var(--gold);
 }
-.harr-frontend .star-picker:hover .star-pick-label:hover ~ .star-pick-label {
+/* Checked: ilumina a label do radio marcado e todas as seguintes */
+.harr-frontend .star-pick-radio:checked + .star-pick-label,
+.harr-frontend .star-pick-radio:checked + .star-pick-label ~ .star-pick-label {
+    color: var(--gold);
+}
+/* Hover sobrescreve o checked — reseta labels após a hovered */
+.harr-frontend .star-pick-label:hover ~ .star-pick-radio:checked + .star-pick-label {
     color: #3d5054;
-}
-.harr-frontend .star-pick-label--on .star-pick-icon {
-    color: var(--gold);
 }
 .harr-frontend .spoiler-label {
     display: flex;
@@ -164,7 +170,7 @@
     cursor: pointer;
 }
 .harr-frontend .log-form-grid > .field > label {
-    font-size: 13px;
+    font-size: 16px;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--muted);
@@ -174,7 +180,7 @@
 
 /* reviews da página do filme */
 .harr-frontend .film-review {
-    padding: 22px 0;
+    padding: 14px 0;
     border-bottom: 1px solid var(--line);
 }
 .harr-frontend .film-review:last-child {
