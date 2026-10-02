@@ -3,7 +3,7 @@ services:
     name: harr
     runtime: ruby
     buildCommand: ./bin/render-build.sh
-    startCommand: bundle exec rails db:migrate && bundle exec rails server -p $PORT
+    startCommand: bundle exec rails server -p $PORT
     healthCheckPath: /up
     envVars:
       - key: RAILS_ENV
