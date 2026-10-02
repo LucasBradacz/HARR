@@ -141,6 +141,9 @@
     margin: 12px 0 20px;
     color: #b4c7d4;
     font: 17px/1.6 Georgia, serif;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: pre-wrap;
 }
 .harr-frontend .like-review {
     padding: 0;

@@ -234,6 +234,9 @@
     font: 15px/1.7 Georgia, serif;
     margin: 0;
     max-width: 780px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: pre-wrap;
 }
 .harr-frontend .spoiler-warning {
     margin: 0 0 8px;

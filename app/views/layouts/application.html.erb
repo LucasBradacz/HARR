@@ -12,6 +12,7 @@
 </head>
 <body class="harr-frontend">
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="site-header">
   <header class="navbar">
     <div class="container nav-inner">
       <%= link_to root_path, class: "logo", aria: { label: "HARR — início" } do %>
@@ -50,8 +51,9 @@
       <%= link_to(logged_in? ? user_path(current_user.username) : new_session_path, class: (controller_name == "users" ? "active" : "")) do %>◯ <span>Perfil</span><% end %>
     </nav>
   </div>
+  </div><%# fecha .site-header %>
   <% flash.each do |type, message| %><div class="container flash" role="<%= type == 'alert' ? 'alert' : 'status' %>"><%= message %></div><% end %>
   <%= yield %>
-  <footer class="container footer"><%= link_to "⚓ HARR.", root_path, class: "logo" %><p>Compartilhe sua paixão pelo cinema.</p><span>Projeto acadêmico inspirado no Letterboxd.</span></footer>
+  <footer class="container footer"><%= link_to "⚓ HARR.", root_path, class: "logo" %><p>Compartilhe seu tesouro com o resto da tripulação.</p></footer>
 </body>
 </html>
