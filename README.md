@@ -1,6 +1,6 @@
 # HARR.
 
-Clone do [Letterboxd](https://letterboxd.com) — plataforma para registrar, avaliar e compartilhar filmes assistidos. Projeto acadêmico desenvolvido em Ruby on Rails.
+Plataforma para registrar, avaliar e compartilhar filmes assistidos. Projeto acadêmico desenvolvido em Ruby on Rails.
 
 ---
 
