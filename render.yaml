@@ -2,7 +2,7 @@ services:
   - type: web
     name: harr
     runtime: ruby
-    buildCommand: bundle install && bundle exec rails assets:precompile && bundle exec rails db:migrate
+    buildCommand: ./bin/render-build.sh
     startCommand: bundle exec rails server -p $PORT
     healthCheckPath: /up
     envVars:
