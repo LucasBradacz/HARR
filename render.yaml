@@ -23,3 +23,4 @@ databases:
   - name: harr-db
     databaseName: harr_production
     user: harr
+    postgresMajorVersion: 17
