@@ -3,8 +3,8 @@
     <% users.each do |user| %>
       <li class="user-list-item">
         <%= link_to user_path(user.username), class: "user-list-link" do %>
-          <% if user.avatar.attached? %>
-            <%= image_tag user.avatar, class: "user-list-avatar", alt: user.username %>
+          <% if user.avatar_url.present? %>
+            <%= image_tag user.avatar_url, class: "user-list-avatar", alt: user.username %>
           <% else %>
             <div class="user-list-avatar user-list-avatar--initial"><%= user.username.first.upcase %></div>
           <% end %>
