@@ -9,7 +9,7 @@
 }
 .harr-frontend .tabs-bar {
     position: sticky;
-    top: 86px;
+    top: 0;
     z-index: 99;
     background: #142529;
     border-bottom: 1px solid var(--line);

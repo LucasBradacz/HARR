@@ -1,120 +1,205 @@
-# HARR 🏴‍☠️
+# HARR.
 
-Clone do Letterboxd — plataforma para registrar, avaliar e comentar filmes assistidos, com tema visual pirata.
+Clone do [Letterboxd](https://letterboxd.com) — plataforma para registrar, avaliar e compartilhar filmes assistidos. Projeto acadêmico desenvolvido em Ruby on Rails.
 
-## Stack
+---
 
-- **Ruby** 3.4
-- **Rails** 8.1
-- **PostgreSQL** 17
-- Dados de filmes via API externa (TMDB)
+## 🎬 Vídeo de apresentação
 
-## Pré-requisitos
+> _Adicione aqui o link do YouTube com o vídeo de apresentação do projeto_
+> `https://www.youtube.com/watch?v=...`
 
-Antes de rodar o projeto, tenha instalado na sua máquina:
+## 🌐 Projeto deployado
 
-- Ruby 3.4 (confira com `ruby -v`)
-- Rails 8.1 (`rails -v`)
-- PostgreSQL 17, rodando localmente
-- Bundler (`gem install bundler`)
+> _Adicione aqui a URL do projeto no Render_
+> `https://harr.onrender.com`
 
-## Setup do projeto
+---
 
-### 1. Clone o repositório
+## Funcionalidades
+
+- Cadastro e autenticação de usuários (sem Devise — `has_secure_password`)
+- Busca de filmes via API do TMDB com cache automático no banco
+- Reviews com nota (1–5 estrelas) e texto opcional
+- Diário de exibições — gerado automaticamente ao publicar uma review, ou criado manualmente
+- Watchlist pessoal (adicionar/remover filmes)
+- Perfil público com histórico de reviews e diário
+- Sistema de seguidores/seguindo
+- Upload de avatar de perfil
+- Feed de atividade recente na home (reviews da comunidade)
+
+---
+
+## Tecnologias utilizadas
+
+| Camada | Tecnologia |
+|---|---|
+| Linguagem | Ruby 3.4 |
+| Framework | Ruby on Rails 8.1 |
+| Banco de dados | PostgreSQL 17 |
+| Frontend | HTML/ERB, CSS puro, Stimulus (Hotwire) |
+| Asset pipeline | Propshaft |
+| Upload de arquivos | Active Storage |
+| Autenticação | `has_secure_password` (bcrypt) |
+| API externa | TMDB (The Movie Database) |
+| Segurança | Rack::Attack, Rack::CORS, CSP nativo do Rails |
+| Deploy — servidor | Render (Web Service) |
+| Deploy — banco | Render (PostgreSQL gerenciado) |
+| Gerenciamento de env | dotenv-rails |
+
+---
+
+## Arquitetura do sistema
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                        Navegador                            │
+│              HTML/ERB + CSS + Stimulus (JS)                 │
+└───────────────────────────┬─────────────────────────────────┘
+                            │ HTTP/HTTPS
+┌───────────────────────────▼─────────────────────────────────┐
+│                    Render Web Service                        │
+│                                                             │
+│   ┌─────────────────────────────────────────────────────┐   │
+│   │              Ruby on Rails 8.1 (Puma)               │   │
+│   │                                                     │   │
+│   │  Routes → Controllers → Models → Views (ERB)        │   │
+│   │                                                     │   │
+│   │  ApplicationController                              │   │
+│   │  ├── MoviesController     (index, show)             │   │
+│   │  ├── ReviewsController    (create, edit, update,    │   │
+│   │  │                         destroy)                 │   │
+│   │  ├── DiaryEntriesController (create, edit, update,  │   │
+│   │  │                           destroy)               │   │
+│   │  ├── UsersController      (show, edit, update,      │   │
+│   │  │                         followers, following)    │   │
+│   │  ├── HomeController       (index — feed)            │   │
+│   │  ├── WatchlistItemsController (index, create,       │   │
+│   │  │                             destroy)             │   │
+│   │  ├── FollowsController    (create, destroy)         │   │
+│   │  ├── SessionsController   (new, create, destroy)    │   │
+│   │  └── RegistrationsController (new, create)          │   │
+│   └──────────────────────┬──────────────────────────────┘   │
+│                          │                                   │
+│   ┌──────────────────────▼──────────────────────────────┐   │
+│   │               TmdbClient (Service)                  │   │
+│   │   Net::HTTP + Rails.cache (cache de filmes)         │   │
+│   └──────────────────────┬──────────────────────────────┘   │
+└──────────────────────────┼──────────────────────────────────┘
+                           │
+          ┌────────────────┼─────────────────┐
+          │                │                 │
+┌─────────▼──────┐ ┌───────▼──────┐ ┌───────▼──────┐
+│ Render         │ │ TMDB API     │ │ Active       │
+│ PostgreSQL 17  │ │ (filmes,     │ │ Storage      │
+│                │ │  pôsteres,   │ │ (avatars)    │
+│                │ │  gêneros)    │ │              │
+└────────────────┘ └──────────────┘ └──────────────┘
+```
+
+---
+
+## Arquitetura do banco de dados
+
+```
+┌──────────────────┐         ┌──────────────────┐
+│      users       │         │      movies       │
+├──────────────────┤         ├──────────────────┤
+│ id               │         │ id               │
+│ username (uniq)  │         │ tmdb_id (uniq)   │
+│ email (uniq)     │         │ title            │
+│ password_digest  │         │ synopsis         │
+│ bio              │         │ poster_url       │
+│ avatar_url       │         │ release_year     │
+│ created_at       │         │ cached_at        │
+└────────┬─────────┘         └────────┬─────────┘
+         │                            │
+         │         ┌──────────────────┘
+         │         │
+         │   ┌─────▼──────────────┐         ┌──────────────┐
+         │   │     reviews        │         │   genres     │
+         │   ├────────────────────┤         ├──────────────┤
+         ├──►│ user_id (FK)       │         │ id           │
+         │   │ movie_id (FK)      │◄───┐    │ name         │
+         │   │ rating (decimal)   │    │    └──────┬───────┘
+         │   │ body               │    │           │
+         │   │ contains_spoilers  │    │    ┌──────▼───────┐
+         │   └────────┬───────────┘    │    │ movie_genres │
+         │            │                │    ├──────────────┤
+         │   ┌────────▼───────────┐    │    │ movie_id (FK)│
+         │   │   diary_entries    │    │    │ genre_id (FK)│
+         │   ├────────────────────┤    │    └──────────────┘
+         ├──►│ user_id (FK)       │    │
+         │   │ movie_id (FK)      │────┘
+         │   │ review_id (FK, opt)│  (criado automaticamente
+         │   │ rating (decimal)   │   ao publicar review)
+         │   │ watched_on         │
+         │   └────────────────────┘
+         │
+         │   ┌────────────────────┐
+         │   │  watchlist_items   │
+         │   ├────────────────────┤
+         ├──►│ user_id (FK)       │
+         │   │ movie_id (FK)      │
+         │   │ UNIQUE(user,movie) │
+         │   └────────────────────┘
+         │
+         │   ┌────────────────────┐
+         │   │      follows       │
+         │   ├────────────────────┤
+         ├──►│ follower_id (FK)   │
+         └──►│ followed_id (FK)   │
+             │ UNIQUE(flwr,flwd)  │
+             │ CHECK flwr≠flwd    │
+             └────────────────────┘
+```
+
+---
+
+## Configuração local
+
+### Pré-requisitos
+
+- Ruby 3.4
+- PostgreSQL 17
+- Bundler
+
+### Instalação
 
 ```bash
-git clone https://github.com/LucasBradacz/HARR.git
+git clone https://github.com/LucasBradacz/HARR
 cd HARR
-```
-
-### 2. Instale as dependências
-
-```bash
 bundle install
-```
-
-### 3. Configure as variáveis de ambiente
-
-O projeto usa a gem `dotenv-rails` para manter credenciais fora do controle de versão. Crie um arquivo `.env` na raiz do projeto (esse arquivo **não é commitado**, cada dev tem o seu):
-
-```
-HARR_DATABASE_PASSWORD=sua_senha_do_postgres_local
-```
-
-> Peça a senha combinada da instância local do Postgres pro resto do time, ou use a senha que você mesmo configurou ao instalar o Postgres na sua máquina.
-
-### 4. Confira o `config/database.yml`
-
-O arquivo já está configurado para usar `127.0.0.1` como host (em vez de `localhost`), evitando problemas comuns de IPv6 no Windows. Confirme que o `username` corresponde ao seu usuário do Postgres (por padrão, `postgres`):
-
-```yaml
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  host: 127.0.0.1
-  username: postgres
-  password: <%= ENV['HARR_DATABASE_PASSWORD'] %>
-```
-
-### 5. Crie e migre o banco de dados
-
-```bash
-rails db:create
-rails db:migrate
-```
-
-Isso vai criar todas as tabelas na ordem correta: `users`, `movies`, `genres`, `movie_genres`, `reviews`, `diary_entries`, `watchlist_items` e `follows`.
-
-### 6. (Opcional) Popule dados iniciais
-
-Se houver seeds configuradas:
-
-```bash
-rails db:seed
-```
-
-### 7. Rode o servidor
-
-```bash
+cp .env.example .env
+# preencha .env com suas credenciais
+rails db:create db:migrate
 rails server
 ```
 
-Acesse em [http://localhost:3000](http://localhost:3000).
+### Variáveis de ambiente
 
-## Problemas comuns
+| Variável | Descrição |
+|---|---|
+| `HARR_DATABASE_PASSWORD` | Senha do PostgreSQL local |
+| `TMDB_API_KEY` | Chave da API do TMDB — obtenha em [themoviedb.org](https://www.themoviedb.org/settings/api) |
+| `RAILS_MASTER_KEY` | Necessário apenas em produção (valor em `config/master.key`) |
 
-### `PG::ConnectionBad: connection to server at "localhost" ... fe_sendauth: no password supplied`
+---
 
-Confirme que:
-- Seu `.env` existe e tem a variável `HARR_DATABASE_PASSWORD` preenchida
-- O `database.yml` está usando `127.0.0.1`, não `localhost`
+## Deploy
 
-### `PG::UndefinedTable` durante uma migration
+O projeto é deployado no [Render](https://render.com) usando o arquivo `render.yaml` na raiz do repositório.
 
-Geralmente indica que o banco ficou em estado parcial de uma tentativa anterior. Rode:
+**Serviços provisionados automaticamente:**
+- Web Service (Ruby/Puma)
+- PostgreSQL 17 gerenciado
 
-```bash
-rails db:drop db:create db:migrate
-```
+**Variáveis que precisam ser configuradas manualmente no dashboard do Render:**
+- `RAILS_MASTER_KEY`
+- `TMDB_API_KEY`
 
-⚠️ Isso apaga todos os dados locais — use só em ambiente de desenvolvimento.
+---
 
-### Avisos do tipo `VIPS-WARNING ... unable to load vips-*.dll`
+## Equipe
 
-São avisos inofensivos do `libvips` (usado pelo Active Storage para processar imagens) sobre módulos opcionais ausentes no Windows. Não impedem o funcionamento do projeto.
-
-## Modelo de dados (resumo)
-
-- **users** — contas e autenticação
-- **movies** — cache local dos dados vindos da API do TMDB
-- **genres** / **movie_genres** — gêneros dos filmes (N:N)
-- **reviews** — críticas de texto escritas pelos usuários
-- **diary_entries** — registro de cada exibição de um filme (pode repetir o mesmo filme várias vezes, com nota e data)
-- **watchlist_items** — lista de "quero assistir" de cada usuário
-- **follows** — relação de seguir entre usuários (self-referential)
-
-## Convenções do projeto
-
-- Autenticação nativa do Rails (`has_secure_password`), sem Devise
-- Rating de 1 a 5
-- Cada usuário pode ter múltiplas reviews e diary entries do mesmo filme
+Projeto acadêmico desenvolvido por Lucas Bradacz e equipe.

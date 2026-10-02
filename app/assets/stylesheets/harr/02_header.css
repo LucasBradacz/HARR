@@ -1,5 +1,8 @@
 /* 2. CABEÇALHO — details/summary abre o menu também por toque e teclado. */
 .harr-frontend .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     background: #0c181c;
     border-bottom: 1px solid var(--line);
 }

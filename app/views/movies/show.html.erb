@@ -50,8 +50,9 @@
                 <% (1..5).each do |n| %>
                   <label class="star-pick-label" title="<%= n %> estrela<%= n == 1 ? '' : 's' %>"
                          data-star-picker-target="label"
-                         data-action="mouseenter->star-picker#hover click->star-picker#select">
-                    <%= f.radio_button :rating, n, class: "star-pick-radio" %>
+                         data-action="mouseenter->star-picker#hover">
+                    <%= f.radio_button :rating, n, class: "star-pick-radio",
+                          data: { action: "change->star-picker#pick" } %>
                     <span class="star-pick-icon">★</span>
                   </label>
                 <% end %>
