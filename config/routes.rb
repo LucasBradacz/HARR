@@ -17,10 +17,19 @@ Rails.application.routes.draw do
 
   resource :registration, only: [:new, :create]
 
-  resources :users, only: [:show, :edit, :update], param: :username
+  resources :users, only: [:show, :edit, :update], param: :username do
+    member do
+      get :followers
+      get :following
+    end
+  end
 
   post "follows/:followed_id", to: "follows#create", as: :follow
   delete "follows/:followed_id", to: "follows#destroy", as: :unfollow
 
   get "up" => "rails/health#show", as: :rails_health_check
+
+  # Páginas de erro customizadas
+  match "/404", to: "errors#not_found", via: :all
+  match "/500", to: "errors#internal_server_error", via: :all
 end

@@ -1,0 +1,9 @@
+<% content_for :title, "Seguindo — #{@user.username} | HARR" %>
+<main class="container page-content" id="conteudo">
+  <%= link_to "← Voltar para o perfil", user_path(@user.username), class: "back-link" %>
+  <div class="page-heading">
+    <p class="eyebrow">TRIPULAÇÃO</p>
+    <h1><%= @user.username %> segue</h1>
+  </div>
+  <%= render "user_list", users: @users %>
+</main>

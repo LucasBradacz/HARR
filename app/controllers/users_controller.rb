@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :followers, :following]
   before_action :require_login, only: [:edit, :update]
   before_action :require_own_profile, only: [:edit, :update]
 
@@ -16,6 +16,14 @@ class UsersController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def followers
+    @users = @user.followers
+  end
+
+  def following
+    @users = @user.following
   end
 
   private

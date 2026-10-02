@@ -1,19 +1,24 @@
 class Review < ApplicationRecord
   belongs_to :user
   belongs_to :movie
+  has_one :diary_entry, dependent: :destroy
+
+  # Recebe a data assistida do formulário — não é coluna do banco
+  attr_accessor :watched_on
 
   validates :body, length: { maximum: 2000 }
-  validates :rating, numericality: { only_integer: true, in: 1..5 }, allow_nil: true
+  validates :rating, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }, allow_nil: true
 
   after_create :log_in_diary
 
   private
 
   def log_in_diary
-    user.diary_entries.create(
+    build_diary_entry(
+      user: user,
       movie: movie,
       rating: rating,
-      watched_on: Date.current
-    )
+      watched_on: watched_on.presence || Date.current
+    ).save
   end
 end

@@ -1,0 +1,32 @@
+<% if users.any? %>
+  <ul class="user-list">
+    <% users.each do |user| %>
+      <li class="user-list-item">
+        <%= link_to user_path(user.username), class: "user-list-link" do %>
+          <% if user.avatar.attached? %>
+            <%= image_tag user.avatar, class: "user-list-avatar", alt: user.username %>
+          <% else %>
+            <div class="user-list-avatar user-list-avatar--initial"><%= user.username.first.upcase %></div>
+          <% end %>
+          <div>
+            <strong><%= user.username %></strong>
+            <% if user.bio.present? %>
+              <p class="user-list-bio"><%= truncate(user.bio, length: 80) %></p>
+            <% end %>
+          </div>
+        <% end %>
+        <% if logged_in? && current_user != user %>
+          <div class="user-list-follow">
+            <% if current_user.following.include?(user) %>
+              <%= button_to "Seguindo", unfollow_path(user.id), method: :delete, class: "button secondary" %>
+            <% else %>
+              <%= button_to "Seguir", follow_path(user.id), method: :post, class: "button" %>
+            <% end %>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p class="empty-state">Nenhum usuário aqui ainda.</p>
+<% end %>

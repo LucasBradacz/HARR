@@ -42,17 +42,24 @@
       </div>
       <div class="form-card">
         <%= form_with model: Review.new, url: movie_reviews_path(@movie), local: true, class: "stacked" do |f| %>
-          <div class="field">
-            <%= f.label :rating, "Nota" %>
-            <div class="star-picker" data-controller="star-picker">
-              <% (1..5).each do |n| %>
-                <label class="star-pick-label" title="<%= n %> estrela<%= n == 1 ? '' : 's' %>"
-                       data-star-picker-target="label"
-                       data-action="mouseenter->star-picker#hover mouseleave->star-picker#leave">
-                  <%= f.radio_button :rating, n, class: "star-pick-radio" %>
-                  <span class="star-pick-icon">★</span>
-                </label>
-              <% end %>
+          <div class="log-form-grid">
+            <div class="field">
+              <%= f.label :rating, "Nota" %>
+              <div class="star-picker" data-controller="star-picker"
+                   data-action="mouseleave->star-picker#leave">
+                <% (1..5).each do |n| %>
+                  <label class="star-pick-label" title="<%= n %> estrela<%= n == 1 ? '' : 's' %>"
+                         data-star-picker-target="label"
+                         data-action="mouseenter->star-picker#hover">
+                    <%= f.radio_button :rating, n, class: "star-pick-radio" %>
+                    <span class="star-pick-icon">★</span>
+                  </label>
+                <% end %>
+              </div>
+            </div>
+            <div class="field">
+              <%= f.label :watched_on, "Data" %>
+              <%= f.date_field :watched_on, value: Date.current, class: "input" %>
             </div>
           </div>
           <%= f.label :body, "Review (opcional)" %>
@@ -71,7 +78,8 @@
   <section class="section">
     <div class="section-heading">
       <h2>Reviews</h2>
-      <span><%= @movie.reviews.count %> CRÍTICA<%= @movie.reviews.count == 1 ? "" : "S" %></span>
+      <% reviews_count = @movie.reviews.size %>
+      <span><%= reviews_count %> CRÍTICA<%= reviews_count == 1 ? "" : "S" %></span>
     </div>
 
     <% if @movie.reviews.any? %>
@@ -98,7 +106,7 @@
             <% if logged_in? && review.user == current_user %>
               <div class="review-actions film-review-actions">
                 <%= link_to "Editar", edit_review_path(review) %>
-                <%= button_to "Excluir", review_path(review), method: :delete, class: "danger", form_class: "inline-form" %>
+                <%= button_to "Excluir", review_path(review), method: :delete, class: "danger", form_class: "inline-form", data: { turbo_confirm: "Tem certeza que quer excluir esta review?" } %>
               </div>
             <% end %>
           </div>
