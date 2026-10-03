@@ -201,4 +201,4 @@ O projeto é deployado no [Render](https://render.com) usando o arquivo `render.
 
 ## Equipe
 
-Projeto acadêmico desenvolvido por Lucas Bradacz e equipe.
+Projeto acadêmico desenvolvido por Eric Camini, Lucas Bradacz, Matheus Henrique, Móises Zilles, Rubens Garcia.
