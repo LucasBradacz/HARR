@@ -58,7 +58,8 @@
             </div>
           </div>
           <%= f.label :body, "Review (opcional)" %>
-          <%= f.text_area :body, placeholder: "O que você achou? Deixe em branco para registrar apenas a nota no diário.", rows: 4 %>
+          <%= f.text_area :body, placeholder: "O que você achou? Deixe em branco para registrar apenas a nota no diário.", rows: 4,
+                onkeydown: "if(event.key==='Tab'){event.preventDefault();var s=this.selectionStart;this.value=this.value.substring(0,s)+'     '+this.value.substring(this.selectionEnd);this.selectionStart=this.selectionEnd=s+5;}" %>
           <label class="spoiler-label">
             <%= f.check_box :contains_spoilers %>
             Contém spoilers

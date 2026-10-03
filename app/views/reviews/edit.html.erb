@@ -10,17 +10,20 @@
           <ul><% @review.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %></ul>
         </div>
       <% end %>
+
       <div class="field">
         <%= f.label :rating, "Nota" %>
         <div class="star-picker">
           <% (5).downto(1) do |n| %>
-            <%= f.radio_button :rating, n, checked: @review.rating.to_i == n %>
+            <%= f.radio_button :rating, n, checked: @review.rating.to_i == n, class: "star-pick-radio" %>
             <label for="<%= "review_rating_#{n}" %>" class="star-pick-label" title="<%= n %> estrela<%= n == 1 ? '' : 's' %>">★</label>
           <% end %>
         </div>
       </div>
+
       <%= f.label :body, "Sua review" %>
-      <%= f.text_area :body %>
+      <%= f.text_area :body, data: { controller: "tab-indent", action: "keydown->tab-indent#indent" },
+            onkeydown: "if(event.key==='Tab'){event.preventDefault();var s=this.selectionStart;this.value=this.value.substring(0,s)+'     '+this.value.substring(this.selectionEnd);this.selectionStart=this.selectionEnd=s+5;}" %>
       <label class="spoiler-label"><%= f.check_box :contains_spoilers %> Contém spoilers</label>
       <%= f.submit "Salvar", class: "button" %>
     <% end %>
