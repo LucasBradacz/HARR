@@ -37,7 +37,7 @@
             </div>
 
             <% if review.body.present? %>
-              <p class="review-text"><%= review.body %></p>
+              <%= render "reviews/body", body: review.body %>
             <% end %>
           </div>
         </article>

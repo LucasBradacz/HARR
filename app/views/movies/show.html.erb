@@ -106,7 +106,7 @@
             <p class="spoiler-warning eyebrow">⚠ Contém spoilers</p>
           <% end %>
           <% if review.body.present? %>
-            <p class="film-review-body"><%= review.body %></p>
+            <%= render "reviews/body", body: review.body %>
           <% end %>
         </article>
       <% end %>

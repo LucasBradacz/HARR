@@ -327,3 +327,43 @@
     font-size: 16px;
     margin-bottom: 32px;
 }
+
+/* === MOSTRAR MAIS/MENOS NAS REVIEWS === */
+.harr-frontend .review-body {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: pre-wrap;
+}
+.harr-frontend .review-expandable {
+    position: relative;
+}
+.harr-frontend .review-expand-check {
+    display: none;
+}
+.harr-frontend .review-body--collapsible {
+    max-height: 160px;
+    overflow: hidden;
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
+/* quando checked, expande */
+.harr-frontend .review-expand-check:checked ~ .review-body--collapsible {
+    max-height: none;
+    mask-image: none;
+    -webkit-mask-image: none;
+}
+.harr-frontend .review-expand-btn {
+    display: inline-block;
+    color: var(--gold);
+    font-size: 12px;
+    cursor: pointer;
+    margin-top: 4px;
+}
+.harr-frontend .review-expand-btn:hover {
+    text-decoration: underline;
+}
+/* alterna os labels */
+.harr-frontend .lbl-less { display: none; }
+.harr-frontend .lbl-more { display: inline; }
+.harr-frontend .review-expand-check:checked ~ .review-expand-btn .lbl-less { display: inline; }
+.harr-frontend .review-expand-check:checked ~ .review-expand-btn .lbl-more { display: none; }

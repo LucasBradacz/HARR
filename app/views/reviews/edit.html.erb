@@ -1,1 +1,28 @@
-<% content_for :title, "Editar review | HARR" %><main class="container page-content" id="conteudo"><%= link_to "← Voltar para o filme", movie_path(@review.movie), class: "back-link" %><div class="form-card"><p class="eyebrow">SUA CRÍTICA</p><h1>Editar review</h1><%= form_with model: @review, url: review_path(@review), local: true, class: "stacked" do |f| %><%= f.label :rating, "Nota" %><%= f.number_field :rating, in: 1..5 %><%= f.label :body, "Sua review" %><%= f.text_area :body %><label><%= f.check_box :contains_spoilers %> Contém spoilers</label><%= f.submit "Salvar", class: "button" %><% end %></div></main>
+<% content_for :title, "Editar review | HARR" %>
+<main class="container page-content" id="conteudo">
+  <%= link_to "← Voltar para o filme", movie_path(@review.movie), class: "back-link" %>
+  <div class="form-card">
+    <p class="eyebrow">SUA CRÍTICA</p>
+    <h1>Editar review</h1>
+    <%= form_with model: @review, url: review_path(@review), local: true, class: "stacked" do |f| %>
+      <% if @review.errors.any? %>
+        <div class="flash flash-alert" role="alert">
+          <ul><% @review.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %></ul>
+        </div>
+      <% end %>
+      <div class="field">
+        <%= f.label :rating, "Nota" %>
+        <div class="star-picker">
+          <% (5).downto(1) do |n| %>
+            <%= f.radio_button :rating, n, checked: @review.rating.to_i == n %>
+            <label for="<%= "review_rating_#{n}" %>" class="star-pick-label" title="<%= n %> estrela<%= n == 1 ? '' : 's' %>">★</label>
+          <% end %>
+        </div>
+      </div>
+      <%= f.label :body, "Sua review" %>
+      <%= f.text_area :body %>
+      <label class="spoiler-label"><%= f.check_box :contains_spoilers %> Contém spoilers</label>
+      <%= f.submit "Salvar", class: "button" %>
+    <% end %>
+  </div>
+</main>

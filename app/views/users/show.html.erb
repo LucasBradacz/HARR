@@ -73,7 +73,7 @@
               <% if review.contains_spoilers %>
                 <p class="eyebrow" style="font-size:9px">Contém spoilers</p>
               <% end %>
-              <% if review.body.present? %><p><%= review.body %></p><% end %>
+              <% if review.body.present? %><%= render "reviews/body", body: review.body %><% end %>
               <% if logged_in? && review.user == current_user %>
                 <div class="review-actions">
                   <%= link_to "Editar", edit_review_path(review) %>

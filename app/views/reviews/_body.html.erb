@@ -1,0 +1,16 @@
+<% long = body.present? && body.length > 1000 %>
+<% if body.present? %>
+  <% if long %>
+    <% id = "expand-#{SecureRandom.hex(4)}" %>
+    <div class="review-expandable">
+      <input type="checkbox" id="<%= id %>" class="review-expand-check">
+      <p class="review-body review-body--collapsible"><%= body %></p>
+      <label for="<%= id %>" class="review-expand-btn">
+        <span class="lbl-more">Mostrar mais ▼</span>
+        <span class="lbl-less">Mostrar menos ▲</span>
+      </label>
+    </div>
+  <% else %>
+    <p class="review-body"><%= body %></p>
+  <% end %>
+<% end %>

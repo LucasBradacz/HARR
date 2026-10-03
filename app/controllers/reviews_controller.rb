@@ -4,12 +4,13 @@ class ReviewsController < ApplicationController
   before_action :set_user_review, only: [:edit, :update, :destroy]
 
   def create
-    @review = @movie.reviews.build(review_params)
+    @review = @movie.reviews.build(create_params)
     @review.user = current_user
 
     if @review.save
       redirect_to movie_path(@movie), notice: "Review publicada com sucesso."
     else
+      @movie = Movie.find_by!(tmdb_id: params[:movie_id])
       render "movies/show", status: :unprocessable_entity
     end
   end
@@ -17,7 +18,7 @@ class ReviewsController < ApplicationController
   def edit; end
 
   def update
-    if @review.update(review_params)
+    if @review.update(update_params)
       redirect_to movie_path(@review.movie), notice: "Review atualizada com sucesso."
     else
       render :edit, status: :unprocessable_entity
@@ -40,7 +41,11 @@ class ReviewsController < ApplicationController
     @review = current_user.reviews.find(params[:id])
   end
 
-  def review_params
+  def create_params
     params.require(:review).permit(:rating, :body, :contains_spoilers, :watched_on)
+  end
+
+  def update_params
+    params.require(:review).permit(:rating, :body, :contains_spoilers)
   end
 end
