@@ -6,8 +6,7 @@ Plataforma para registrar, avaliar e compartilhar filmes assistidos. Projeto aca
 
 ## 🎬 Vídeo de apresentação
 
-> _Adicione aqui o link do YouTube com o vídeo de apresentação do projeto_
-> `https://www.youtube.com/watch?v=...`
+> https://youtu.be/1kVMa1YvvQI
 
 ## 🌐 Projeto deployado
 
